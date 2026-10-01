@@ -1,0 +1,18 @@
+/* Self-hosted, latin subset (Google Fonts, OFL — licences in src/assets/fonts/).
+   Bricolage is a static 800 instance: the design was set at the default optical size,
+   and the variable file with automatic opsz renders large headings ~10% narrower. */
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../assets/fonts/inter-latin-400-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../assets/fonts/bricolage-grotesque-latin-800.woff2') format('woff2');
+}
