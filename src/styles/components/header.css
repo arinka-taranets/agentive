@@ -77,8 +77,8 @@
     display: grid;
 
     /* 24px icon as drawn, 44px hit area that does not move it */
-    padding: var(--space-2) calc(var(--space-2) + 2px);
-    margin: calc(-1 * var(--space-2)) calc(-1 * var(--space-2) - 2px);
+    padding: calc(var(--space-2) + 2px);
+    margin: calc(-1 * var(--space-2) - 2px);
     border-radius: var(--radius-sm);
     color: #000; /* the design's icon colour; used nowhere else */
 
