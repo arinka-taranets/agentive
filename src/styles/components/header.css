@@ -1,0 +1,206 @@
+@layer components {
+  .site-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 10;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-bar);
+
+    /* Without JS the menu is laid out in the header, which is then too tall to stick. */
+    @media (width < 64rem) {
+      :root:not([data-js]) & {
+        position: static;
+      }
+    }
+
+    @media (width >= 64rem) {
+      /* The design's 1px outside stroke: only the bottom edge is visible. */
+      box-shadow:
+        0 1px 0 var(--color-divider),
+        var(--shadow-bar);
+    }
+  }
+
+  .site-header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    min-block-size: var(--header-height);
+
+    @media (width < 64rem) {
+      :root:not([data-js]) & {
+        padding-block: var(--space-8);
+        row-gap: var(--space-4);
+      }
+    }
+
+    @media (width >= 64rem) {
+      grid-template-columns: 1fr auto 1fr;
+    }
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    justify-self: start;
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-display);
+    line-height: var(--leading-display);
+  }
+
+  .logo-mark {
+    color: var(--color-primary);
+  }
+
+  .nav {
+    justify-self: end;
+
+    @media (width < 64rem) {
+      :root:not([data-js]) & {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+      }
+    }
+
+    @media (width >= 64rem) {
+      grid-column: 2 / -1;
+      justify-self: stretch;
+      display: grid;
+      grid-template-columns: subgrid;
+      align-items: center;
+    }
+  }
+
+  .nav-toggle {
+    display: grid;
+
+    /* 24px icon as drawn, 44px hit area that does not move it */
+    padding: var(--space-2) calc(var(--space-2) + 2px);
+    margin: calc(-1 * var(--space-2)) calc(-1 * var(--space-2) - 2px);
+    border-radius: var(--radius-sm);
+    color: #000; /* the design's icon colour; used nowhere else */
+
+    & svg {
+      grid-area: 1 / 1;
+    }
+
+    &[aria-expanded='false'] .nav-toggle-close,
+    &[aria-expanded='true'] .nav-toggle-open {
+      visibility: hidden;
+    }
+
+    :root:not([data-js]) & {
+      display: none;
+    }
+
+    @media (width >= 64rem) {
+      display: none;
+    }
+  }
+
+  .nav-link,
+  .nav-sign-in {
+    font-size: var(--text-md);
+    line-height: var(--leading-ui);
+    color: var(--color-muted);
+    transition: color var(--duration-fast) var(--ease-out);
+
+    &:hover {
+      color: var(--color-ink);
+    }
+  }
+
+  .nav-sign-in {
+    font-weight: var(--weight-medium);
+  }
+
+  /* Mobile and tablet: a panel that drops below the bar. Not drawn in the design. */
+  @media (width < 64rem) {
+    :root[data-js] .nav-panel {
+      position: absolute;
+      inset-inline: 0;
+      inset-block-start: 100%;
+      padding: var(--space-2) var(--gutter) var(--space-6);
+      border-block-start: 1px solid var(--color-divider);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-bar);
+      visibility: hidden;
+      opacity: 0;
+      translate: 0 calc(-1 * var(--space-2));
+      transition:
+        opacity var(--duration-fast) var(--ease-out),
+        translate var(--duration-fast) var(--ease-out),
+        visibility 0s var(--duration-fast);
+    }
+
+    :root[data-js] .nav-toggle[aria-expanded='true'] + .nav-panel {
+      visibility: visible;
+      opacity: 1;
+      translate: 0;
+      transition-delay: 0s;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      min-block-size: 2.75rem;
+      border-block-end: 1px solid var(--color-divider);
+    }
+
+    .nav-auth {
+      margin-block-start: var(--space-6);
+    }
+
+    .nav-sign-in {
+      display: grid;
+      place-items: center;
+      min-block-size: 2.75rem;
+    }
+  }
+
+  /* Phone: actions stacked full width. Tablet and up: in a row on the right, as on desktop. */
+  @media (width < 48rem) {
+    .nav-auth {
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .nav-auth .button {
+      min-block-size: 2.75rem;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .nav-auth {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      gap: 22px; /* design value, off the 4px grid */
+    }
+  }
+
+  @media (width >= 64rem) {
+    .nav-panel {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: subgrid;
+      align-items: center;
+    }
+
+    .nav-list {
+      display: flex;
+      gap: var(--space-16);
+    }
+
+    .nav-link {
+      display: block;
+      padding-block: var(--space-2);
+    }
+
+    .nav-auth {
+      justify-self: end;
+    }
+  }
+}
