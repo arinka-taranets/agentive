@@ -1,5 +1,5 @@
 @layer components {
-  .site-header {
+  .header {
     position: sticky;
     inset-block-start: 0;
     z-index: 10;
@@ -21,7 +21,7 @@
     }
   }
 
-  .site-header-inner {
+  .header-inner {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
