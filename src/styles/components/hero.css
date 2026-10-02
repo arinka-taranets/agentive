@@ -1,4 +1,7 @@
 @layer components {
+  /* Three compositions: phone (390 frame), tablet (768 frame) and, from 80rem, desktop
+     (1440 frame). Text beside the cards needs 548 + 470px plus a gap, which a 64rem
+     container cannot give, so the tablet composition carries on up to 80rem. */
   .hero {
     /* Centre of the 600x500 glow. The 768 frame keeps the desktop glow where it was,
        so there it is counted from the left edge; on desktop it follows the centre. */
@@ -15,7 +18,7 @@
       );
     }
 
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       --glow-x: calc(50% + 300px);
 
       padding-block: 10rem 16rem; /* 160 / 256: design values */
@@ -28,7 +31,8 @@
     align-items: center;
     text-align: center;
 
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
+      position: relative;
       align-items: start;
       text-align: start;
     }
@@ -53,7 +57,7 @@
       line-height: 4rem; /* 64 */
     }
 
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       margin-block-start: var(--space-6);
       padding-block: 0;
       font-size: var(--text-6xl);
@@ -104,8 +108,27 @@
     }
 
     /* The design's text box is 2px taller than its two lines; the gap below it is 43. */
-    @media (width >= 64rem) {
+    @media (width >= 80rem) {
       margin-block-start: 45px;
+    }
+  }
+
+  /* Cards: below the text on phone and tablet, beside it on desktop. */
+  .hero-preview {
+    flex: none;
+    margin-block-start: var(--space-10);
+
+    @media (width >= 48rem) {
+      margin-block-start: 62.4px; /* design value */
+      translate: -8.5px 0; /* the 768 frame's card group sits left of centre */
+    }
+
+    @media (width >= 80rem) {
+      position: absolute;
+      inset-block-start: -70px; /* 90 from the hero's top, the text starts at 160 */
+      inset-inline-end: 26.7px; /* 1360 - 1333.3 in the 1440 frame */
+      margin: 0;
+      translate: none;
     }
   }
 }
