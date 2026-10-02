@@ -5,6 +5,7 @@
     z-index: 10;
     background: var(--color-surface);
     box-shadow: var(--shadow-bar);
+    transition: box-shadow var(--duration-fast) var(--ease-out);
 
     /* Without JS the menu is laid out in the header, which is then too tall to stick. */
     @media (width < 64rem) {
@@ -18,6 +19,14 @@
       box-shadow:
         0 1px 0 var(--color-divider),
         var(--shadow-bar);
+    }
+
+    /* The 768 and 1440 frames show no line or shadow at the top of the page
+       (the 390 frame does); they appear once it scrolls. */
+    @media (width >= 48rem) {
+      :root[data-js] &:not([data-scrolled]) {
+        box-shadow: none;
+      }
     }
   }
 
