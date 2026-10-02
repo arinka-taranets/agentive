@@ -19,6 +19,18 @@ export default {
     png: 90,
   },
 
-  /** Per-file overrides, keyed by the source path relative to src/assets/images/. */
-  overrides: {},
+  /**
+   * Per-file overrides, keyed by the source path relative to src/assets/images/.
+   *
+   * Textures are the design's noise tiles, cropped to the part a tile actually shows.
+   * CSS backgrounds cannot pick a format without image-set(type()), which is newer
+   * than the project's browser target, so they ship as WebP only.
+   */
+  overrides: {
+    // Shown 1:1 (tile scale 1 in the design).
+    'textures/noise-dark.png': { widths: [160], formats: ['webp'] },
+    // Shown at 0.3 scale (307px tile); 614 keeps it sharp at 2x.
+    // Grey = colour x alpha of the original, which is what an additive blend adds.
+    'textures/noise-light.png': { widths: [614], formats: ['webp'] },
+  },
 }
