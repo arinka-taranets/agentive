@@ -35,6 +35,8 @@
     --text-lg: 1.125rem; /* 18 */
     --text-xl: 1.25rem; /* 20 */
     --text-2xl: 2rem; /* 32 */
+    --text-3xl: 2.5rem; /* 40 */
+    --text-4xl: 3rem; /* 48 */
     --text-5xl: 3.5rem; /* 56 */
     --text-6xl: 4rem; /* 64 */
     --weight-regular: 400;

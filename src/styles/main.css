@@ -13,4 +13,5 @@
 /* Sections last: they place the components above. */
 @import url('./components/hero.css');
 @import url('./components/logos.css');
+@import url('./components/metrics.css');
 @import url('./utilities.css');

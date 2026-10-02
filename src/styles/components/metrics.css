@@ -1,0 +1,80 @@
+@layer components {
+  .metrics {
+    padding-block: var(--space-20);
+
+    @media (width >= 64rem) {
+      padding-block: 84px; /* design value */
+    }
+  }
+
+  /* Three figures with a divider in the middle of each gap: stacked on phones,
+     in equal columns from 48rem. */
+  .metrics-list {
+    --metrics-gap: 33px; /* 16 + the 1px divider + 16 */
+
+    display: grid;
+    gap: var(--metrics-gap);
+
+    /* The design measures padding from the outer edge: the 1px stroke sits inside it. */
+    padding: calc(var(--space-6) - 1px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    text-align: center;
+    background: var(--color-surface-alt);
+
+    @media (width >= 48rem) {
+      --metrics-gap: 72px; /* 160px columns in the 704px card */
+
+      grid-template-columns: repeat(3, 1fr);
+      padding-inline: calc(var(--space-10) - 1px);
+      text-align: start;
+    }
+
+    @media (width >= 64rem) {
+      --metrics-gap: var(--space-20);
+
+      padding-block: 28px 27px; /* 29 / 28 in the design */
+    }
+  }
+
+  .metrics-item {
+    position: relative;
+
+    & + &::before {
+      content: '';
+      position: absolute;
+      inset-inline: 0;
+      inset-block-start: calc(var(--metrics-gap) / -2 - 0.5px);
+      block-size: 1px;
+      background: var(--color-divider);
+
+      @media (width >= 48rem) {
+        inset-block: 0;
+        inset-inline-start: calc(var(--metrics-gap) / -2 - 0.5px);
+        inline-size: 1px;
+        block-size: auto;
+      }
+    }
+  }
+
+  .metrics-value {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-display);
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
+    color: var(--color-ink);
+
+    @media (width >= 48rem) {
+      font-size: var(--text-4xl);
+      line-height: 3.625rem; /* 58, the design's text box */
+    }
+  }
+
+  .metrics-text {
+    margin-block-start: var(--space-2);
+    font-size: var(--text-md);
+    line-height: 1.0625rem; /* 17, the design's text box */
+    color: var(--color-muted);
+  }
+}
