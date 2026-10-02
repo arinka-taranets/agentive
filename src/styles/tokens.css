@@ -5,6 +5,10 @@
     /* Colour */
     --color-primary: #4f46e5;
     --color-primary-light: #818cf8;
+    --color-gradient-start: #264cf3;
+    --color-gradient-end: #8a49e0;
+    --color-cta-start: #0051ff;
+    --color-cta-end: #0d5eff;
     --color-ink: #0e0e11;
     --color-muted: #6b6b7a;
     --color-subtle: #9999a8;
@@ -30,6 +34,9 @@
     --text-base: 1rem; /* 16 */
     --text-lg: 1.125rem; /* 18 */
     --text-xl: 1.25rem; /* 20 */
+    --text-2xl: 2rem; /* 32 */
+    --text-5xl: 3.5rem; /* 56 */
+    --text-6xl: 4rem; /* 64 */
     --weight-regular: 400;
     --weight-medium: 500;
     --weight-semibold: 600;
@@ -41,6 +48,7 @@
     --leading-ui: 1.21;
     --leading-body: 1.5;
     --tracking-display: -0.02em;
+    --tracking-eyebrow: 0.04em;
 
     /* Spacing — the 4px grid of the auto-layout gaps and paddings */
     --space-1: 0.25rem;

@@ -1,0 +1,111 @@
+@layer components {
+  .hero {
+    /* Centre of the 600x500 glow. The 768 frame keeps the desktop glow where it was,
+       so there it is counted from the left edge; on desktop it follows the centre. */
+    --glow-x: 1020px;
+
+    padding-block: var(--space-12) 84px; /* 84: design value */
+
+    @media (width >= 48rem) {
+      padding-block: var(--space-20) 120px; /* 120: design value */
+      background: radial-gradient(
+        300px 250px at var(--glow-x) 330px,
+        color-mix(in srgb, var(--color-primary) 8%, transparent),
+        transparent
+      );
+    }
+
+    @media (width >= 64rem) {
+      --glow-x: calc(50% + 300px);
+
+      padding-block: 10rem 16rem; /* 160 / 256: design values */
+    }
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    @media (width >= 64rem) {
+      align-items: start;
+      text-align: start;
+    }
+  }
+
+  /* The design sets each line in its own box and overlaps the boxes (-8px).
+     Line height = the distance between lines, padding = half the overlap, so wrapping keeps it. */
+  .hero-title {
+    inline-size: 100%;
+    max-inline-size: 34.25rem; /* 548 */
+    margin-block-start: var(--space-2);
+    padding-block: var(--space-1);
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-display);
+    line-height: 2.5rem; /* 40 */
+    letter-spacing: var(--tracking-display);
+
+    @media (width >= 48rem) {
+      margin-block-start: var(--space-4);
+      font-size: var(--text-5xl);
+      line-height: 4rem; /* 64 */
+    }
+
+    @media (width >= 64rem) {
+      margin-block-start: var(--space-6);
+      padding-block: 0;
+      font-size: var(--text-6xl);
+      line-height: 4.5rem; /* 72 */
+    }
+  }
+
+  .hero-title-accent {
+    display: block;
+    color: var(--color-gradient-start);
+
+    /* The gradient spans the line's box and ends at 78.7% of it, as in the design. */
+    @supports (background-clip: text) {
+      background: linear-gradient(
+        90deg,
+        var(--color-gradient-start),
+        var(--color-gradient-end) 78.7%
+      );
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .hero-text {
+    inline-size: 100%;
+    max-inline-size: 28.75rem; /* 460 */
+    margin-block-start: var(--space-2);
+    font-size: var(--text-md);
+    color: var(--color-muted);
+
+    @media (width >= 48rem) {
+      margin-block-start: var(--space-4);
+      font-size: var(--text-lg);
+      line-height: 1.875rem; /* 30 */
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    gap: var(--space-4);
+    margin-block-start: var(--space-6);
+
+    @media (width >= 48rem) {
+      flex-direction: row;
+      align-self: auto;
+    }
+
+    /* The design's text box is 2px taller than its two lines; the gap below it is 43. */
+    @media (width >= 64rem) {
+      margin-block-start: 45px;
+    }
+  }
+}

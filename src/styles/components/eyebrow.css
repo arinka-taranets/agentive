@@ -1,0 +1,44 @@
+@layer components {
+  /* The small label above a section heading ("Now in public beta"). */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* design value, off the 4px grid */
+
+    /* 7/12 in the design, measured from the outer edge: the stroke sits inside it. */
+    padding: 6px 11px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-ui);
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--color-primary);
+
+    /* Layers as the design paints them: noise, fill, then the stroke over the fill at the edge. */
+    background:
+      url('../../assets/img/textures/noise-dark-160.webp') border-box,
+      linear-gradient(rgb(220 222 255 / 20%), rgb(151 158 255 / 20%)) border-box padding-box,
+      linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+      linear-gradient(rgb(196 200 255 / 50%), rgb(134 141 245 / 50%)) border-box,
+      linear-gradient(rgb(220 222 255 / 20%), rgb(151 158 255 / 20%)) border-box,
+      var(--color-surface);
+    background-blend-mode: soft-light, normal, normal, normal, normal;
+    box-shadow:
+      0 11.39px 22.34px rgb(53 62 185 / 9%),
+      inset 0 -2px 1px rgb(151 158 255 / 40%);
+
+    &::before {
+      content: '';
+      inline-size: 6px;
+      block-size: 6px;
+      border-radius: 50%;
+      background: currentcolor;
+    }
+
+    @media (width >= 48rem) {
+      font-size: var(--text-xs);
+      line-height: 1.25; /* the design's text box is 15, not 14.5: its 12px line rounded up */
+    }
+  }
+}
