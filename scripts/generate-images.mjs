@@ -65,7 +65,7 @@ async function build(file, key, settings) {
   const outputs = []
   for (const width of widths) {
     const resized = sharp(file).resize({ width, withoutEnlargement: true })
-    for (const format of [...settings.formats, fallback]) {
+    for (const format of settings.fallback ? [...settings.formats, fallback] : settings.formats) {
       const name = `${stem}-${width}.${EXT[format]}`
       const target = join(OUT_DIR, name)
       mkdirSync(dirname(target), { recursive: true })
