@@ -76,6 +76,9 @@
     /* Elevation */
     --shadow-bar: 0 1px 4px rgb(0 0 0 / 4%);
 
+    /* Texture — the design's dark noise tile; one reference, so the build inlines it once */
+    --noise-dark: url('../assets/img/textures/noise-dark-160.webp');
+
     /* Focus — the style guide's focused input: 2px primary */
     --focus-ring: 2px solid var(--color-primary);
     --focus-offset: 2px;

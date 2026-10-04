@@ -17,7 +17,7 @@
 
     /* Layers as the design paints them: noise, fill, then the stroke over the fill at the edge. */
     background:
-      url('../../assets/img/textures/noise-dark-160.webp') border-box,
+      var(--noise-dark) border-box,
       linear-gradient(rgb(220 222 255 / 20%), rgb(151 158 255 / 20%)) border-box padding-box,
       linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
       linear-gradient(rgb(196 200 255 / 50%), rgb(134 141 245 / 50%)) border-box,
