@@ -35,5 +35,10 @@ export default {
     // Shown at 0.3 scale (307px tile); 614 keeps it sharp at 2x.
     // Grey = colour x alpha of the original, which is what an additive blend adds.
     'textures/noise-light.png': { widths: [614], formats: ['webp'], fallback: false },
+
+    // Shown at 13–16px inside the feature mock-ups; 32 keeps them sharp at 2x.
+    // Too small for a <picture>: one WebP of about 1 KB.
+    'icons/gmail.png': { widths: [32], formats: ['webp'], fallback: false },
+    'icons/chart.png': { widths: [32], formats: ['webp'], fallback: false },
   },
 }

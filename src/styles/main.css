@@ -9,9 +9,17 @@
 @import url('./components/eyebrow.css');
 @import url('./components/header.css');
 @import url('./components/preview.css');
+@import url('./components/intro.css');
+@import url('./components/emoji.css');
+@import url('./components/glass.css');
+@import url('./components/tile.css');
+@import url('./components/tag.css');
+@import url('./components/raised.css');
+@import url('./components/feature.css');
 
 /* Sections last: they place the components above. */
 @import url('./components/hero.css');
 @import url('./components/logos.css');
 @import url('./components/metrics.css');
+@import url('./components/features.css');
 @import url('./utilities.css');

@@ -1,0 +1,96 @@
+@layer components {
+  /* The design's tinted surface: a 20% gradient with noise in soft light, a 1px gradient
+     stroke, an inner glow and a drop shadow that shows through the fill.
+     Soft light needs something opaque to blend with, so the surface repeats the colour
+     behind it (`--glass-base`, set by the card it sits on).
+     box-shadow is not drawn inside its own box, so the shadow is cast by a box of no
+     area in the middle, spread to the surface's size (`--glass-half`: half its shorter
+     side). Content inside needs `position: relative` to sit above the shadow. */
+  .glass {
+    --glass-stroke: 1px;
+    --glass-drop: 11.39px;
+    --glass-blur: 22.34px;
+
+    position: relative;
+    background:
+      var(--noise-dark), linear-gradient(var(--glass-from), var(--glass-to)),
+      var(--glass-base, var(--color-surface));
+    background-blend-mode: soft-light, normal, normal;
+    box-shadow: inset 0 -2px 1px var(--glass-glow);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+    }
+
+    &::before {
+      inset: 50% var(--glass-half);
+      box-shadow: 0 var(--glass-drop) var(--glass-blur) var(--glass-half) var(--glass-shadow);
+    }
+
+    &::after {
+      inset: 0;
+      padding: var(--glass-stroke);
+      border-radius: inherit;
+      background: linear-gradient(var(--glass-line-from), var(--glass-line-to));
+      mask:
+        linear-gradient(#000 0 0) content-box exclude,
+        linear-gradient(#000 0 0);
+    }
+  }
+
+  .glass-blue {
+    --glass-from: rgb(220 230 255 / 20%);
+    --glass-to: rgb(151 188 255 / 20%);
+    --glass-line-from: rgb(196 222 255 / 50%);
+    --glass-line-to: rgb(134 188 245 / 50%);
+    --glass-glow: rgb(151 201 255 / 40%);
+    --glass-shadow: rgb(53 108 185 / 9%);
+  }
+
+  .glass-sky {
+    --glass-from: rgb(220 234 255 / 20%);
+    --glass-to: rgb(151 193 255 / 20%);
+    --glass-line-from: rgb(196 220 255 / 50%);
+    --glass-line-to: rgb(134 178 245 / 50%);
+    --glass-glow: rgb(151 193 255 / 40%);
+    --glass-shadow: rgb(53 106 185 / 9%);
+  }
+
+  .glass-indigo {
+    --glass-from: rgb(220 222 255 / 20%);
+    --glass-to: rgb(151 158 255 / 20%);
+    --glass-line-from: rgb(196 200 255 / 50%);
+    --glass-line-to: rgb(134 141 245 / 50%);
+    --glass-glow: rgb(151 158 255 / 40%);
+    --glass-shadow: rgb(53 62 185 / 9%);
+  }
+
+  .glass-purple {
+    --glass-from: rgb(242 220 255 / 20%);
+    --glass-to: rgb(217 151 255 / 20%);
+    --glass-line-from: rgb(233 196 255 / 50%);
+    --glass-line-to: rgb(204 134 245 / 50%);
+    --glass-glow: rgb(200 151 255 / 40%);
+    --glass-shadow: rgb(130 53 185 / 9%);
+  }
+
+  .glass-red {
+    --glass-from: rgb(255 220 220 / 20%);
+    --glass-to: rgb(255 151 151 / 20%);
+    --glass-line-from: rgb(255 196 196 / 50%);
+    --glass-line-to: rgb(245 134 134 / 50%);
+    --glass-glow: rgb(255 151 151 / 40%);
+    --glass-shadow: rgb(209 78 78 / 9%);
+  }
+
+  .glass-green {
+    --glass-from: rgb(226 255 220 / 20%);
+    --glass-to: rgb(181 255 151 / 20%);
+    --glass-line-from: rgb(214 255 196 / 50%);
+    --glass-line-to: rgb(165 245 134 / 50%);
+    --glass-glow: rgb(187 255 151 / 40%);
+    --glass-shadow: rgb(99 185 53 / 9%);
+  }
+}
