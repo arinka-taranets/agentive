@@ -1,15 +1,5 @@
-/**
- * Image pipeline.
- *
- *   src/assets/images/   sources, committed to git
- *          |  sharp
- *          v
- *   src/assets/img/      generated, git-ignored: <name>-<width>.<ext>
- *
- * HTML and CSS reference the generated files by these stable names; Vite adds
- * the content hash on build. Run with `npm run images` — npm also runs it
- * before `dev` and `build`. Unchanged sources are skipped.
- */
+// Builds src/assets/img/ (git-ignored, stable names: <name>-<width>.<ext>) from the sources
+// in src/assets/images/. npm runs it before `dev` and `build`; unchanged sources are skipped.
 import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, extname, join, relative, resolve, sep } from 'node:path'
