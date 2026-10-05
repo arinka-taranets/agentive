@@ -36,9 +36,10 @@ export default {
     // Grey = colour x alpha of the original, which is what an additive blend adds.
     'textures/noise-light.png': { widths: [614], formats: ['webp'], fallback: false },
 
-    // Shown at 13–16px inside the feature mock-ups; 32 keeps them sharp at 2x.
+    // Shown at 13–18px inside the mock-ups; twice the largest size keeps them sharp at 2x.
     // Too small for a <picture>: one WebP of about 1 KB.
     'icons/gmail.png': { widths: [32], formats: ['webp'], fallback: false },
-    'icons/chart.png': { widths: [32], formats: ['webp'], fallback: false },
+    'icons/chart.png': { widths: [36], formats: ['webp'], fallback: false },
+    'icons/outreach.png': { widths: [36], formats: ['webp'], fallback: false },
   },
 }

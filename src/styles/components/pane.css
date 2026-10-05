@@ -1,0 +1,23 @@
+@layer components {
+  /* The design's dark glass: only its edges show. Its inner shadows, top one first: two
+     corner highlights with rims, a hairline, a shade. The rims reach half a pixel past
+     the edge, where engines blur differently. The smaller frames draw it at 0.55. */
+  .pane {
+    --pane-scale: 0.55;
+
+    border-radius: var(--pane-radius);
+    box-shadow:
+      inset calc(3px * var(--pane-scale)) calc(3px * var(--pane-scale))
+        calc(0.5px * var(--pane-scale)) calc(-3.5px * var(--pane-scale)) rgb(255 255 255 / 50%),
+      inset calc(3.2px * var(--pane-scale)) calc(3.2px * var(--pane-scale))
+        calc(1px * var(--pane-scale)) calc(-3.7px * var(--pane-scale)) rgb(255 255 255 / 40%),
+      inset calc(-3.2px * var(--pane-scale)) calc(-3.2px * var(--pane-scale))
+        calc(1px * var(--pane-scale)) calc(-3.7px * var(--pane-scale)) rgb(255 255 255 / 40%),
+      inset 0 0 0 calc(1px * var(--pane-scale)) rgb(255 255 255 / 7%),
+      inset 0 0 calc(22px * var(--pane-scale)) rgb(0 0 6 / 40%);
+
+    @media (width >= 80rem) {
+      --pane-scale: 1;
+    }
+  }
+}
