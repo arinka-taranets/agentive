@@ -1,11 +1,7 @@
 @layer components {
-  /* The design's tinted surface: a 20% gradient with noise in soft light, a 1px gradient
-     stroke, an inner glow and a drop shadow that shows through the fill.
-     Soft light needs something opaque to blend with, so the surface repeats the colour
-     behind it (`--glass-base`, set by the card it sits on).
-     box-shadow is not drawn inside its own box, so the shadow is cast by a box of no
-     area in the middle, spread to the surface's size (`--glass-half`: half its shorter
-     side). Content inside needs `position: relative` to sit above the shadow. */
+  /* The design's tinted surface. Soft light needs something opaque to blend with, so it
+     repeats the colour behind it (`--glass-base`). The drop shadow shows through the fill:
+     a box of no area, spread by `--glass-half` (half the shorter side), casts it inside. */
   .glass {
     --glass-stroke: 1px;
     --glass-drop: 11.39px;
@@ -24,6 +20,7 @@
       position: absolute;
     }
 
+    /* Content needs `position: relative` to sit above this shade. */
     &::before {
       inset: 50% var(--glass-half);
       box-shadow: 0 var(--glass-drop) var(--glass-blur) var(--glass-half) var(--glass-shadow);

@@ -1,14 +1,7 @@
 @layer components {
-  /* Feature cards, three compositions from the three frames. Like the hero, the tablet
-     one carries on up to 80rem: the two-column rows need the full container.
-     Each card is laid out as its frame draws it, so paddings and offsets differ between
-     cards; they are the design's values minus the 1px stroke, which sits inside the card.
-     The mock-ups are illustrations at the design's own sizes, off the type scale.
-
-     The fill is 30% of a colour, and the design's shadow shows through it. So the card
-     is painted in the design's order, as layers under the content: white, the shadow
-     (a blurred copy of the card, which box-shadow would not draw inside), then the
-     fill with the stroke. */
+  /* Three compositions from the three frames; the tablet one carries on up to 80rem, as in
+     the hero. Paddings are the design's minus the 1px stroke, which sits inside the card.
+     The mock-ups are illustrations at the design's own sizes, off the type scale. */
   .feature {
     position: relative;
     isolation: isolate;
@@ -19,6 +12,8 @@
     border-radius: var(--radius-2xl);
     background: var(--color-surface);
 
+    /* The design's shadow shows through the 30% fill, so both are layers under the content:
+       a blurred copy of the card, then the fill with the stroke. */
     &::before,
     &::after {
       content: '';
