@@ -171,8 +171,9 @@
       scale: var(--scene-scale);
     }
 
-    /* The scaled window: 296 x 0.86, and its radius. */
+    /* The scaled window: 296 x 0.86, and its radius. A flow root, to end where it ends. */
     @media (width < 22.5rem) {
+      display: flow-root;
       inline-size: 254.56px;
       margin-inline: auto;
       border-radius: 11.35px;
