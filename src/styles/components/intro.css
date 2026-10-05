@@ -37,4 +37,11 @@
       line-height: 1.75rem; /* 28 */
     }
   }
+
+  /* Some sections set the lead a size up from the tablet frame on. */
+  .intro-text-lg {
+    @media (width >= 48rem) {
+      font-size: 1.0625rem; /* 17 */
+    }
+  }
 }

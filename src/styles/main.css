@@ -16,6 +16,7 @@
 @import url('./components/tag.css');
 @import url('./components/raised.css');
 @import url('./components/feature.css');
+@import url('./components/check.css');
 @import url('./components/pane.css');
 @import url('./components/dashboard.css');
 
@@ -25,4 +26,5 @@
 @import url('./components/metrics.css');
 @import url('./components/features.css');
 @import url('./components/showcase.css');
+@import url('./components/use-cases.css');
 @import url('./utilities.css');

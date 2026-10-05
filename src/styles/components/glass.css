@@ -82,6 +82,16 @@
     --glass-shadow: rgb(209 78 78 / 9%);
   }
 
+  /* The design fills this one at 50%, and its shadow is twice as strong. */
+  .glass-yellow {
+    --glass-from: rgb(255 250 220 / 50%);
+    --glass-to: rgb(255 241 151 / 50%);
+    --glass-line-from: rgb(255 246 188 / 50%);
+    --glass-line-to: rgb(255 227 47 / 50%);
+    --glass-glow: rgb(255 241 151 / 40%);
+    --glass-shadow: rgb(255 227 42 / 19%);
+  }
+
   .glass-green {
     --glass-from: rgb(226 255 220 / 20%);
     --glass-to: rgb(181 255 151 / 20%);
