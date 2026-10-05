@@ -18,6 +18,15 @@
     line-height: 15px;
     text-align: start;
 
+    /* Its cards need the 296px the window has at 360. Below that the window keeps this
+       width and is scaled to fit 320, as the hero cards are. */
+    @media (width < 22.5rem) {
+      inline-size: 296px;
+      margin-block-end: -56.1px; /* the 14% the scale takes off its 400.8px height */
+      scale: 0.86;
+      transform-origin: 0 0;
+    }
+
     @media (width >= 48rem) {
       grid-template-areas:
         'bar bar'

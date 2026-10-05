@@ -171,6 +171,13 @@
       scale: var(--scene-scale);
     }
 
+    /* The scaled window: 296 x 0.86, and its radius. */
+    @media (width < 22.5rem) {
+      inline-size: 254.56px;
+      margin-inline: auto;
+      border-radius: 11.35px;
+    }
+
     @media (width >= 48rem) {
       --scene-x: 26.4px;
 
