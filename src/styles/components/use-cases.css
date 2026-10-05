@@ -33,8 +33,8 @@
   }
 
   /* Paddings are the design's 32 minus the 1px stroke, which sits inside the card. The
-     stroke is half as strong in the 768 and 390 frames. Heights as each frame draws them:
-     the first row of the 768 frame and all of the 1440 one leave 16px under the list. */
+     stroke is half as strong in the 768 and 390 frames. The 1440 frame leaves 16px under
+     the list. */
   .use-case {
     --glass-base: var(--color-surface);
 
@@ -42,12 +42,6 @@
     border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
     border-radius: var(--radius-lg);
     background: var(--color-surface);
-
-    @media (width >= 48rem) {
-      &:nth-child(-n + 2) {
-        min-block-size: 408px;
-      }
-    }
 
     @media (width >= 80rem) {
       min-block-size: 408px;
