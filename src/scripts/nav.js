@@ -1,8 +1,5 @@
-/**
- * Mobile navigation — APG Disclosure Navigation Menu.
- * The button toggles aria-expanded; CSS shows the panel from that state.
- * Escape closes and returns focus to the button; so does leaving the menu.
- */
+// Mobile navigation: APG Disclosure Navigation Menu. The button toggles aria-expanded and
+// CSS shows the panel from that state. Escape, or leaving the menu, closes it.
 const DESKTOP = window.matchMedia('(width >= 64rem)')
 
 export function initNav() {

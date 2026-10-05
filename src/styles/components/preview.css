@@ -1,8 +1,7 @@
 @layer components {
-  /* Product preview: four overlapping cards. They are an illustration, drawn at the
-     design's own sizes (fractional, off the type scale) and placed absolutely, as a collage.
-     Text line heights are the design's text box heights. On phones each card is the
-     desktop card scaled as a whole, by the factor the 390 frame uses for it. */
+  /* Product preview: four overlapping cards, one illustration at the design's own sizes,
+     placed absolutely as a collage. On phones each card is the desktop card scaled as a
+     whole, by the factor the 390 frame uses for it. */
   .preview {
     position: relative;
     inline-size: 341px;

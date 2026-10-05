@@ -1,9 +1,7 @@
 @layer components {
-  /* A slot with a 5px white rim outside its box and the design's layered shadow.
-     The slot has no fill, so the shadow shows inside it as well: box-shadow cannot
-     do that, a filter on the rim can (its blur is a standard deviation: half the
-     design's radius). What stands in the slot casts the same shadow: its text, and
-     its glass surfaces, through which the shadow shows. */
+  /* A slot with a 5px white rim outside its box and the design's layered shadow. The slot
+     has no fill, so the shadow shows inside it too: a filter on the rim draws that. What
+     stands in the slot (text, glass) casts the same shadow. */
   .raised {
     position: relative;
     border-radius: var(--radius-sm);
