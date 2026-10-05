@@ -1,7 +1,7 @@
 {
   "name": "agentive",
   "version": "0.1.0",
-  "description": "Landing page for Agentive, an AI agent platform.",
+  "description": "Landing page for Agentive, a fictional SaaS platform for automating workflows.",
   "private": true,
   "type": "module",
   "engines": {
