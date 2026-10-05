@@ -19,6 +19,8 @@
 @import url('./components/check.css');
 @import url('./components/pane.css');
 @import url('./components/dashboard.css');
+@import url('./components/stat.css');
+@import url('./components/testimonial.css');
 
 /* Sections last: they place the components above. */
 @import url('./components/hero.css');
@@ -27,4 +29,5 @@
 @import url('./components/features.css');
 @import url('./components/showcase.css');
 @import url('./components/use-cases.css');
+@import url('./components/testimonials.css');
 @import url('./utilities.css');
