@@ -104,6 +104,7 @@
     line-height: 0.75rem; /* 12: the design's text box */
     letter-spacing: 0.06em;
     text-transform: uppercase;
+    backdrop-filter: blur(10px); /* the design's 20 */
     box-shadow:
       inset 0 -3px 4px rgb(255 255 255 / 15%),
       inset 0 3px 4px rgb(255 255 255 / 15%),

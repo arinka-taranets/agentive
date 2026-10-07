@@ -140,6 +140,7 @@
 
     font-weight: var(--weight-medium);
     color: rgb(255 255 255 / 55%);
+    backdrop-filter: blur(7.5px); /* the design's 15: hides the ring that passes behind */
 
     &:hover {
       color: var(--color-surface);
