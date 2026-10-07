@@ -92,6 +92,16 @@
     --glass-shadow: rgb(255 227 42 / 19%);
   }
 
+  /* The "Save 20%" pill's green: not the features' one. */
+  .glass-mint {
+    --glass-from: rgb(220 255 221 / 20%);
+    --glass-to: rgb(151 255 160 / 20%);
+    --glass-line-from: rgb(196 255 213 / 50%);
+    --glass-line-to: rgb(134 245 148 / 50%);
+    --glass-glow: rgb(151 255 156 / 40%);
+    --glass-shadow: rgb(53 185 91 / 9%);
+  }
+
   .glass-green {
     --glass-from: rgb(226 255 220 / 20%);
     --glass-to: rgb(181 255 151 / 20%);

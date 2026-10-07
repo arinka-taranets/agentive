@@ -1,0 +1,40 @@
+@layer components {
+  /* An on / off control: `<button role="switch">`, the state is `aria-checked`. The design
+     draws only "on"; "off" keeps its shape with a track that is 3:1 against the page. */
+  .switch {
+    position: relative;
+    flex: none;
+    inline-size: 36px;
+    block-size: 20px;
+    border-radius: var(--radius-pill);
+    background: var(--color-muted);
+    transition: background-color var(--duration-fast) var(--ease-out);
+
+    /* 44px hit area around the 20px track */
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -12px -4px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset-block-start: 2px;
+      inset-inline-start: 2px;
+      inline-size: 16px;
+      block-size: 16px;
+      border-radius: 50%;
+      background: var(--color-surface);
+      transition: translate var(--duration-fast) var(--ease-out);
+    }
+
+    &[aria-checked='true'] {
+      background: var(--color-primary);
+
+      &::after {
+        translate: 16px;
+      }
+    }
+  }
+}
