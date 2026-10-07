@@ -32,7 +32,7 @@
     @media (width >= 80rem) {
       padding: var(--space-16) var(--space-12);
       border-radius: 28px;
-      box-shadow: 0 8px 40px rgb(0 0 0 / 15%);
+      box-shadow: var(--shadow-dark-card);
     }
   }
 

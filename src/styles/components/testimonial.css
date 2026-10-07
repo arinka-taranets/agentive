@@ -35,7 +35,7 @@
     min-block-size: 217px; /* design value */
     border-color: transparent;
     background: var(--color-surface-dark);
-    box-shadow: 0 8px 40px rgb(0 0 0 / 15%);
+    box-shadow: var(--shadow-dark-card);
 
     @media (width >= 80rem) {
       gap: 10px; /* design value */
