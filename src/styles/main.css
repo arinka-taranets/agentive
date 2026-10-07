@@ -21,6 +21,7 @@
 @import url('./components/dashboard.css');
 @import url('./components/stat.css');
 @import url('./components/testimonial.css');
+@import url('./components/footer.css');
 
 /* Sections last: they place the components above. */
 @import url('./components/hero.css');
