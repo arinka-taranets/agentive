@@ -1,13 +1,13 @@
 @layer components {
-  /* "Trusted by": a single row centred on the page. Where it is wider than the screen,
-     the screen's edges cut it, as in the 768 and 390 frames. */
+  /* "Trusted by": the names never leave the screen. Three columns in two rows on phones;
+     from 48rem one row, as wide as the 1440 frame's or the container, the gaps taking what
+     is left (117 in that frame, 72 at 768). The 768 and 390 frames cut the row at the edges. */
   .logos {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-4);
     padding-block: var(--space-4) var(--space-6);
-    overflow: clip;
     color: var(--color-subtle);
     background: var(--color-surface);
 
@@ -32,15 +32,19 @@
   }
 
   .logos-list {
-    display: flex;
-    gap: var(--space-12);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4) 0;
+    justify-items: center;
+    inline-size: min(100% - 2 * var(--gutter), 58.125rem); /* 930: 117 between the names */
     font-size: 1.0625rem; /* 17 */
     font-weight: var(--weight-bold);
     line-height: 1.3125rem; /* 21, the design's text box */
     white-space: nowrap;
 
     @media (width >= 48rem) {
-      gap: 117px; /* design value */
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
