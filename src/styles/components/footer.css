@@ -1,33 +1,31 @@
 @layer components {
   .footer {
-    background: var(--color-surface-dark);
+    /* The primary ring is 2.9:1 on this surface. */
+    --focus-ring: 2px solid var(--color-primary-light);
+
+    padding-block-start: var(--space-16);
+    overflow: clip; /* the wordmark: wider than a small screen, cut by the bottom edge above 80rem */
     color: rgb(255 255 255 / 20%);
-    padding-block: var(--space-16);
+    background: var(--color-surface-dark);
 
     @media (width >= 48rem) {
-      padding-bottom: 0;
+      padding-block-end: var(--space-16);
     }
 
-    h2 {
-      font-family: var(--font-sans);
-      font-size: var(--text-3xs);
-      letter-spacing: 8%;
-      font-weight: var(--weight-semibold);
-      color: rgb(255 255 255 / 20%);
-      margin-bottom: var(--space-5);
+    @media (width >= 80rem) {
+      padding-block-end: 49px; /* design value */
     }
   }
 
+  /* The menu comes first on phones and tablets; in the source it follows the logo. */
   .footer-top {
     display: flex;
     flex-direction: column-reverse;
-    gap: var(--space-15);
-    margin-bottom: var(--space-5);
+    gap: var(--space-16);
 
     @media (width >= 80rem) {
-      display: grid;
-      grid-template-columns: 250px minmax(0, 1fr);
-      gap: var(--space-35);
+      flex-direction: row;
+      gap: 180px; /* design value */
     }
   }
 
@@ -35,87 +33,139 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
+
+    @media (width >= 80rem) {
+      flex: none;
+      gap: var(--space-6);
+      inline-size: 15.8125rem; /* 253: the tagline's column */
+    }
   }
 
   .footer-logo {
+    align-items: end; /* the 24px line sits on the mark's bottom edge in the frames */
+    align-self: start;
+    font-size: var(--text-xl);
+    letter-spacing: -0.025em; /* design value */
     color: var(--color-surface);
   }
 
-  .footer-nav {
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-    justify-content: space-between;
-    row-gap: var(--space-1-15);
-    padding-right: var(--space-1-10);
-
-    @media (width >= 48rem) {
-      grid-template-columns: repeat(4, max-content);
-      padding-right: var(--space-25);
-    }
-
-    @media (width >= 80rem) {
-      padding-right: var(--space-34);
-    }
-  }
-
-  .footer-menu {
+  .footer-tagline {
     font-size: var(--text-md);
-    color: rgb(255 255 255 / 38%);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
+    color: rgb(255 255 255 / 30%);
+
+    /* The design's text box is 40 tall for 42 of lines. */
+    @media (width >= 80rem) {
+      margin-block-end: -2px;
+    }
   }
 
   .footer-social {
     display: flex;
-    gap: var(--space-2);
+    gap: 10px; /* design value, off the 4px grid */
   }
 
   .footer-social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     inline-size: 34px;
     block-size: 34px;
-    background-color: rgb(255 255 255 / 10%);
     border-radius: var(--radius-sm);
+    color: rgb(255 255 255 / 35%);
+    transition: color var(--duration-fast) var(--ease-out);
+
+    &:hover {
+      color: var(--color-surface);
+    }
   }
 
-  .footer-txt {
+  /* Column widths and gaps are the frames'; the phone's two columns are 104 wide. */
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 6.5rem);
+    gap: var(--space-12) 0;
+    justify-content: space-between;
+
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(4, max-content);
+      column-gap: 6rem; /* 96 */
+      justify-content: start;
+    }
+
+    @media (width >= 80rem) {
+      column-gap: 8rem; /* 128 */
+    }
+  }
+
+  .footer-column {
+    display: grid;
+    gap: var(--space-6);
+    align-content: start;
+  }
+
+  .footer-title {
+    font-size: 0.6875rem; /* 11 */
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-ui);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .footer-menu {
+    display: grid;
+    gap: var(--space-4);
     font-size: var(--text-md);
-    color: rgb(255 255 255 / 30%);
+    line-height: var(--leading-ui);
+    color: rgb(255 255 255 / 38%);
+
+    & a {
+      transition: color var(--duration-fast) var(--ease-out);
+
+      &:hover {
+        color: var(--color-surface);
+      }
+    }
   }
 
   .footer-bottom {
-    border-top: 1px solid rgb(255 255 255 / 6%);
     position: relative;
-    padding-block: var(--space-4);
-
-    @media (width >= 48rem) {
-      padding-block: var(--space-5);
-    }
+    display: grid;
+    grid-template-columns: minmax(0, 1fr); /* the wordmark may be wider than the column */
+    margin-block-start: var(--space-5);
+    padding-block-start: var(--space-4);
+    border-block-start: 1px solid rgb(255 255 255 / 6%);
   }
 
   .footer-copy {
     font-size: var(--text-xs);
-    margin-bottom: var(--space-11);
+    line-height: 1.25; /* 15: the design's text box */
   }
 
-  .footer-logo-bottom {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: calc(-1 * var(--space-12));
-    color: rgb(255 255 255 / 4%);
+  /* Under the copyright and centred on phones, wider than the screen below 338px;
+     behind the copyright's row from 48rem, where the frames start it at the line. */
+  .footer-wordmark {
+    justify-self: center;
+    margin-block-start: var(--space-4);
     font-family: var(--font-display);
     font-size: var(--text-7xl);
     font-weight: var(--weight-display);
-    line-height: 1;
-    letter-spacing: -7%;
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-display);
+    white-space: nowrap;
+    color: rgb(255 255 255 / 4%);
+
+    @media (width < 22.5rem) {
+      font-size: var(--text-6xl);
+    }
 
     @media (width >= 48rem) {
-      left: auto;
-      bottom: 0;
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      margin-block-start: 0;
+    }
+
+    @media (width >= 80rem) {
+      inset-block-start: -3px; /* 2px above the line */
     }
   }
 }
