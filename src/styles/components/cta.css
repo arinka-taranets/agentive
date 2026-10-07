@@ -1,0 +1,216 @@
+@layer components {
+  /* The closing call to action. The frames' distances to the sections around it. */
+  .cta {
+    padding-block: var(--space-16) 7.5rem; /* 64, 120 */
+
+    @media (width >= 48rem) {
+      padding-block: var(--space-20);
+    }
+
+    @media (width >= 64rem) {
+      padding-block: 8rem; /* 128 */
+    }
+  }
+
+  /* 506 tall from the 768 frame on, the content starting 64 from the top. The scene behind
+     (rings and a grid of four lines) is the design's 1376 x 520 drawing around the rings'
+     centre: scaled to 0.707 and centred on phones, 3px and 48px right of centre above. */
+  .cta-card {
+    --focus-ring: 2px solid var(--color-primary-light);
+    --scene-scale: 0.7074;
+    --scene-x: 0px;
+    --scene-y: 50%;
+    --scene-line: rgb(255 255 255 / 4%);
+    --scene-ring: rgb(255 255 255 / 6.5%);
+
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    align-content: start;
+    justify-items: center;
+    padding: var(--space-10) var(--space-4);
+    overflow: clip;
+    border-radius: 28px; /* design value */
+    color: var(--color-surface);
+    text-align: center;
+    background: var(--color-surface-dark);
+    box-shadow: var(--shadow-dark-card);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset-block-start: calc(var(--scene-y) - 260px);
+      inset-inline-start: calc(50% + var(--scene-x) - 688px);
+      z-index: -1;
+      inline-size: 1376px;
+      block-size: 520px;
+      background:
+        linear-gradient(var(--scene-line) 0 0) 0 160px / 100% 1px no-repeat,
+        linear-gradient(var(--scene-line) 0 0) 0 340px / 100% 1px no-repeat,
+        linear-gradient(var(--scene-line) 0 0) 480px 0 / 1px 100% no-repeat,
+        linear-gradient(var(--scene-line) 0 0) 896px 0 / 1px 100% no-repeat,
+        radial-gradient(
+          circle at center,
+          transparent 83.75px,
+          var(--scene-ring) 84.25px 84.75px,
+          transparent 85.25px 168.75px,
+          var(--scene-ring) 169.25px 169.75px,
+          transparent 170.25px 253.75px,
+          var(--scene-ring) 254.25px 254.75px,
+          transparent 255.25px 338.75px,
+          var(--scene-ring) 339.25px 339.75px,
+          transparent 340.25px
+        );
+      scale: var(--scene-scale);
+    }
+
+    @media (width >= 48rem) {
+      --scene-scale: 1;
+      --scene-x: 3px;
+      --scene-y: 260px;
+
+      min-block-size: 506px; /* design value */
+      padding: var(--space-16) var(--space-8);
+    }
+
+    /* The 60px title leaves 61 under the content. */
+    @media (width >= 80rem) {
+      --scene-x: 48px;
+
+      padding-block-end: 61px;
+    }
+  }
+
+  /* `ghost` with the label's own stroke and shadows. */
+  .cta-eyebrow {
+    --ghost-line: conic-gradient(
+      at 52.75% 38.75%,
+      rgb(251 251 251 / 19.7%) 0deg,
+      rgb(255 255 255 / 15%) 73.7deg,
+      rgb(249 249 249 / 15%) 86.8deg,
+      rgb(64 64 64 / 25%) 94.1deg,
+      rgb(64 64 64 / 17.5%) 98.9deg,
+      rgb(255 255 255 / 15%) 115.3deg,
+      rgb(255 255 255 / 15%) 254deg,
+      rgb(64 64 64 / 17.5%) 273.5deg,
+      rgb(249 249 249 / 25%) 277.7deg,
+      rgb(251 251 251 / 19.7%) 360deg
+    );
+
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-semibold);
+    line-height: 0.75rem; /* 12: the design's text box */
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow:
+      inset 0 -3px 4px rgb(255 255 255 / 15%),
+      inset 0 3px 4px rgb(255 255 255 / 15%),
+      -27px 66px 29px rgb(145 145 145 / 1%),
+      -15px 37px 24px rgb(145 145 145 / 3%),
+      -7px 17px 18px rgb(145 145 145 / 4%),
+      -2px 4px 10px rgb(145 145 145 / 5%);
+
+    @media (width >= 48rem) {
+      font-size: var(--text-xs);
+      line-height: 0.9375rem; /* 15 */
+    }
+  }
+
+  /* Line heights are the design's text boxes (38, 58, 72). */
+  .cta-title {
+    margin-block-start: var(--space-4);
+    font-family: var(--font-display);
+    font-size: 2rem; /* 32 */
+    font-weight: var(--weight-display);
+    line-height: 2.375rem;
+    letter-spacing: -0.025em; /* design value */
+
+    @media (width >= 48rem) {
+      font-size: 3rem; /* 48 */
+      line-height: 3.625rem;
+    }
+
+    @media (width >= 80rem) {
+      font-size: 3.75rem; /* 60 */
+      line-height: 4.5rem;
+    }
+  }
+
+  /* Its own line, as wide as the title; the gradient ends at 78.7% of that box. */
+  .cta-title-accent {
+    display: block;
+    color: var(--color-primary-light);
+
+    @supports (background-clip: text) {
+      background: linear-gradient(
+        90deg,
+        var(--color-gradient-start),
+        var(--color-gradient-end) 78.7%
+      );
+      background-clip: text;
+      color: transparent;
+    }
+  }
+
+  .cta-text {
+    max-inline-size: 33.75rem; /* 540 */
+    margin-block-start: var(--space-4);
+    line-height: 1.75rem; /* 28 */
+    color: rgb(255 255 255 / 40%);
+  }
+
+  .cta-actions {
+    display: grid;
+    gap: var(--space-4);
+    justify-self: stretch;
+    margin-block-start: var(--space-12);
+
+    @media (width >= 48rem) {
+      grid-auto-flow: column;
+      justify-self: center;
+    }
+  }
+
+  /* Three across in every frame; they wrap only where 320px leaves no room. */
+  .cta-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    justify-content: center;
+    inline-size: min(100%, 34.0625rem); /* 545 */
+    margin-block-start: var(--space-8);
+    font-size: var(--text-2xs);
+    line-height: 0.8125rem; /* 13: the emoji's box */
+
+    @media (width >= 22.5rem) {
+      justify-content: space-between;
+    }
+
+    @media (width >= 48rem) {
+      font-size: var(--text-sm);
+      line-height: 1rem; /* 16 */
+    }
+  }
+
+  /* The emoji is 13px next to 10px text on phones: 1.3 of `emoji`'s size. */
+  .cta-point {
+    display: flex;
+    gap: var(--space-1);
+    align-items: center;
+
+    & .emoji {
+      font-size: 1.04em;
+      vertical-align: 0;
+    }
+
+    @media (width >= 48rem) {
+      gap: var(--space-2);
+
+      & .emoji {
+        font-size: 0.8em;
+      }
+    }
+  }
+}
