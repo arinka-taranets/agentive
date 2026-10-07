@@ -140,7 +140,11 @@
                 />
               </svg>
             </a>
-            <a class="button button-secondary" href="#demo">
+            <a
+              class="button button-secondary"
+              href="https://www.youtube.com/watch?v=F8NKVhkZZWI"
+              data-video="F8NKVhkZZWI"
+            >
               <svg
                 width="16"
                 height="16"
@@ -1208,5 +1212,33 @@
         </div>
       </div>
     </footer>
+
+    <dialog class="video" aria-labelledby="video-title" data-video-dialog>
+      <div class="video-body">
+        <div class="video-head">
+          <h2 class="video-title" id="video-title" data-video-title>
+            What are AI Agents? — IBM Technology
+          </h2>
+          <form method="dialog">
+            <button class="video-close ghost" autofocus>
+              <span class="visually-hidden">Close video</span>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                aria-hidden="true"
+              >
+                <path d="m6 6 12 12M18 6 6 18" />
+              </svg>
+            </button>
+          </form>
+        </div>
+        <div class="video-frame" data-video-frame></div>
+      </div>
+    </dialog>
   </body>
 </html>

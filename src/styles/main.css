@@ -25,6 +25,7 @@
 @import url('./components/switch.css');
 @import url('./components/tier.css');
 @import url('./components/footer.css');
+@import url('./components/video.css');
 
 /* Sections last: they place the components above. */
 @import url('./components/hero.css');
