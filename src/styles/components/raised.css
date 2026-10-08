@@ -1,38 +1,36 @@
-@layer components {
-  /* A slot with a 5px white rim outside its box and the design's layered shadow. The slot
-     has no fill, so the shadow shows inside it too: a filter on the rim draws that. What
-     stands in the slot (text, glass) casts the same shadow. */
-  .raised {
-    position: relative;
-    border-radius: var(--radius-sm);
-    text-shadow:
-      0 2px 4px rgb(0 0 0 / 5%),
-      0 7.5px 7.5px rgb(0 0 0 / 4%),
-      0 17px 10.5px rgb(0 0 0 / 3%),
-      0 30.5px 12px rgb(0 0 0 / 1%);
+/* A slot with a 5px white rim outside its box and the design's layered shadow. The slot
+   has no fill, so the shadow shows inside it too: a filter on the rim draws that. What
+   stands in the slot (text, glass) casts the same shadow. */
+.raised {
+  position: relative;
+  border-radius: var(--radius-sm);
+  text-shadow:
+    0 2px 4px rgb(0 0 0 / 5%),
+    0 7.5px 7.5px rgb(0 0 0 / 4%),
+    0 17px 10.5px rgb(0 0 0 / 3%),
+    0 30.5px 12px rgb(0 0 0 / 1%);
 
-    /* Above what stands in the slot: a frame's stroke is drawn over its content. */
-    &::before {
-      content: '';
-      position: absolute;
-      inset: -5px;
-      z-index: 1;
-      border: 5px solid var(--color-surface);
-      border-radius: 13px;
-      filter: drop-shadow(0 2px 2px rgb(0 0 0 / 5%)) drop-shadow(0 7.5px 3.75px rgb(0 0 0 / 4%))
-        drop-shadow(0 17px 5.25px rgb(0 0 0 / 3%)) drop-shadow(0 30.5px 6px rgb(0 0 0 / 1%));
-      pointer-events: none;
-    }
+  /* Above what stands in the slot: a frame's stroke is drawn over its content. */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    z-index: 1;
+    border: 5px solid var(--color-surface);
+    border-radius: 13px;
+    filter: drop-shadow(0 2px 2px rgb(0 0 0 / 5%)) drop-shadow(0 7.5px 3.75px rgb(0 0 0 / 4%))
+      drop-shadow(0 17px 5.25px rgb(0 0 0 / 3%)) drop-shadow(0 30.5px 6px rgb(0 0 0 / 1%));
+    pointer-events: none;
+  }
 
-    /* The slot's shadow as it shows through a surface: weaker than behind the text
-       (about two thirds, measured against the design's export). */
-    .glass::before {
-      box-shadow:
-        0 var(--glass-drop) var(--glass-blur) var(--glass-half) var(--glass-shadow),
-        0 2px 4px var(--glass-half) rgb(0 0 0 / 3.25%),
-        0 7.5px 7.5px var(--glass-half) rgb(0 0 0 / 2.6%),
-        0 17px 10.5px var(--glass-half) rgb(0 0 0 / 1.95%),
-        0 30.5px 12px var(--glass-half) rgb(0 0 0 / 0.65%);
-    }
+  /* The slot's shadow as it shows through a surface: weaker than behind the text
+     (about two thirds, measured against the design's export). */
+  .glass::before {
+    box-shadow:
+      0 var(--glass-drop) var(--glass-blur) var(--glass-half) var(--glass-shadow),
+      0 2px 4px var(--glass-half) rgb(0 0 0 / 3.25%),
+      0 7.5px 7.5px var(--glass-half) rgb(0 0 0 / 2.6%),
+      0 17px 10.5px var(--glass-half) rgb(0 0 0 / 1.95%),
+      0 30.5px 12px var(--glass-half) rgb(0 0 0 / 0.65%);
   }
 }

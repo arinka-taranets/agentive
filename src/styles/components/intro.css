@@ -1,47 +1,45 @@
-@layer components {
-  /* A section's opening: eyebrow, title, lead text, centred. */
-  .intro {
-    display: grid;
-    gap: var(--space-4);
-    justify-items: center;
-    text-align: center;
+/* A section's opening: eyebrow, title, lead text, centred. */
+.intro {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+  text-align: center;
+}
+
+/* Line heights are the design's text boxes (29, 43, 53), as in the hero. */
+.intro-title {
+  max-inline-size: 49.9375rem; /* 799 */
+  font-family: var(--font-display);
+  font-size: 1.5rem; /* 24 */
+  font-weight: var(--weight-display);
+  line-height: 1.8125rem;
+  letter-spacing: var(--tracking-display);
+
+  @media (width >= 48rem) {
+    font-size: 2.25rem; /* 36 */
+    line-height: 2.6875rem;
   }
 
-  /* Line heights are the design's text boxes (29, 43, 53), as in the hero. */
-  .intro-title {
-    max-inline-size: 49.9375rem; /* 799 */
-    font-family: var(--font-display);
-    font-size: 1.5rem; /* 24 */
-    font-weight: var(--weight-display);
-    line-height: 1.8125rem;
-    letter-spacing: var(--tracking-display);
-
-    @media (width >= 48rem) {
-      font-size: 2.25rem; /* 36 */
-      line-height: 2.6875rem;
-    }
-
-    @media (width >= 80rem) {
-      font-size: 2.75rem; /* 44 */
-      line-height: 3.3125rem;
-    }
+  @media (width >= 80rem) {
+    font-size: 2.75rem; /* 44 */
+    line-height: 3.3125rem;
   }
+}
 
-  .intro-text {
-    max-inline-size: 35rem; /* 560 */
-    font-size: var(--text-md);
-    color: var(--color-muted);
+.intro-text {
+  max-inline-size: 35rem; /* 560 */
+  font-size: var(--text-md);
+  color: var(--color-muted);
 
-    @media (width >= 48rem) {
-      font-size: var(--text-base);
-      line-height: 1.75rem; /* 28 */
-    }
+  @media (width >= 48rem) {
+    font-size: var(--text-base);
+    line-height: 1.75rem; /* 28 */
   }
+}
 
-  /* Some sections set the lead a size up from the tablet frame on. */
-  .intro-text-lg {
-    @media (width >= 48rem) {
-      font-size: 1.0625rem; /* 17 */
-    }
+/* Some sections set the lead a size up from the tablet frame on. */
+.intro-text-lg {
+  @media (width >= 48rem) {
+    font-size: 1.0625rem; /* 17 */
   }
 }

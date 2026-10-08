@@ -1,50 +1,48 @@
-@layer components {
-  /* A square that holds an icon. The surface comes from `glass`. */
-  .tile {
-    --glass-half: 24px;
+/* A square that holds an icon. The surface comes from `glass`. */
+.tile {
+  --glass-half: 24px;
 
-    display: grid;
-    flex: none;
-    place-items: center;
-    inline-size: 48px;
-    block-size: 48px;
-    border-radius: var(--radius-sm);
-    font-size: 24px;
-    line-height: 1;
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 48px;
+  block-size: 48px;
+  border-radius: var(--radius-sm);
+  font-size: 24px;
+  line-height: 1;
 
-    /* A 24px emoji is drawn 1px lower in the design than a browser centres it. */
-    > span {
-      inset-block-start: 1px;
-    }
+  /* A 24px emoji is drawn 1px lower in the design than a browser centres it. */
+  > span {
+    inset-block-start: 1px;
   }
+}
 
-  .tile-sm {
-    --glass-half: 14px;
+.tile-sm {
+  --glass-half: 14px;
 
-    inline-size: 28px;
-    block-size: 28px;
-    font-size: 14px;
+  inline-size: 28px;
+  block-size: 28px;
+  font-size: 14px;
 
-    > span {
-      inset-block-start: 0;
-    }
+  > span {
+    inset-block-start: 0;
   }
+}
 
-  /* The 28px tile at 0.75, as the design scales it: stroke, shadow, glow and noise too. */
-  .tile-xs {
-    --glass-stroke: 0.75px;
-    --glass-drop: 8.54px;
-    --glass-blur: 16.75px;
-    --glass-half: 10.5px;
+/* The 28px tile at 0.75, as the design scales it: stroke, shadow, glow and noise too. */
+.tile-xs {
+  --glass-stroke: 0.75px;
+  --glass-drop: 8.54px;
+  --glass-blur: 16.75px;
+  --glass-half: 10.5px;
 
-    inline-size: 21px;
-    block-size: 21px;
-    border-radius: 6px;
-    background-size: 120px, auto;
-    box-shadow: inset 0 -1.5px 0.75px var(--glass-glow);
-  }
+  inline-size: 21px;
+  block-size: 21px;
+  border-radius: 6px;
+  background-size: 120px, auto;
+  box-shadow: inset 0 -1.5px 0.75px var(--glass-glow);
+}
 
-  .tile-icon {
-    position: relative;
-  }
+.tile-icon {
+  position: relative;
 }

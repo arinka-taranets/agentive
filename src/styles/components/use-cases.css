@@ -1,103 +1,101 @@
-@layer components {
-  /* The gap above belongs to the showcase section. The pill sits on this section's own
-     colour, the tiles and ticks on the white cards. */
-  .use-cases {
-    --glass-base: var(--color-surface-alt);
+/* The gap above belongs to the showcase section. The pill sits on this section's own
+   colour, the tiles and ticks on the white cards. */
+.use-cases {
+  --glass-base: var(--color-surface-alt);
 
-    padding-block: var(--space-16);
-    background: var(--color-surface-alt);
+  padding-block: var(--space-16);
+  background: var(--color-surface-alt);
+}
+
+/* In the 768 frame the lead runs the container's width, on one line. */
+.use-cases-lead {
+  @media (48rem <= width < 80rem) {
+    max-inline-size: none;
+  }
+}
+
+.use-cases-list {
+  display: grid;
+  gap: var(--space-4);
+  margin-block-start: 41px; /* design value */
+
+  @media (width >= 48rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-block-start: 38px; /* design value */
   }
 
-  /* In the 768 frame the lead runs the container's width, on one line. */
-  .use-cases-lead {
-    @media (48rem <= width < 80rem) {
-      max-inline-size: none;
-    }
+  /* The frame's four widths, so the cards land on whole pixels at 1440. */
+  @media (width >= 80rem) {
+    grid-template-columns: 312fr 313fr 313fr 312fr;
+    gap: 10px; /* design value */
+  }
+}
+
+/* Paddings are the design's 32 minus the 1px stroke, which sits inside the card. The
+   stroke is half as strong in the 768 and 390 frames. The 1440 frame leaves 16px under
+   the list. */
+.use-case {
+  --glass-base: var(--color-surface);
+
+  padding: 31px;
+  border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+
+  @media (width >= 80rem) {
+    min-block-size: 408px;
+    border-color: var(--color-border);
+  }
+}
+
+/* Two icons as all three frames draw them: the gear 1px to the right, the briefcase
+   at 22px, where a browser centres it as the design does. */
+.use-case:nth-child(1) .tile-icon {
+  inset-inline-start: 1px;
+}
+
+.use-case:nth-child(3) .tile-icon {
+  inset-block-start: 0;
+  font-size: 22px;
+}
+
+.use-case-title {
+  margin-block-start: var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-display);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+}
+
+/* The text column is 249 wide in every frame, whatever the card's width. */
+.use-case-text {
+  max-inline-size: 15.5625rem;
+  margin-block-start: var(--space-2);
+  font-size: var(--text-md);
+  color: var(--color-muted);
+}
+
+/* 30: the design's text box is 2px shorter than its two lines, and the gap under it is 32. */
+.use-case-list {
+  max-inline-size: 15.5625rem;
+  margin-block-start: 30px;
+}
+
+.use-case-item {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  padding-block-start: var(--space-3);
+  border-block-start: 1px solid color-mix(in srgb, var(--color-divider) 50%, transparent);
+  font-size: var(--text-sm);
+  line-height: 1rem; /* 16 */
+
+  &:first-child {
+    border-block-start-color: var(--color-divider);
   }
 
-  .use-cases-list {
-    display: grid;
-    gap: var(--space-4);
-    margin-block-start: 41px; /* design value */
-
-    @media (width >= 48rem) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      margin-block-start: 38px; /* design value */
-    }
-
-    /* The frame's four widths, so the cards land on whole pixels at 1440. */
-    @media (width >= 80rem) {
-      grid-template-columns: 312fr 313fr 313fr 312fr;
-      gap: 10px; /* design value */
-    }
-  }
-
-  /* Paddings are the design's 32 minus the 1px stroke, which sits inside the card. The
-     stroke is half as strong in the 768 and 390 frames. The 1440 frame leaves 16px under
-     the list. */
-  .use-case {
-    --glass-base: var(--color-surface);
-
-    padding: 31px;
-    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
-    border-radius: var(--radius-lg);
-    background: var(--color-surface);
-
-    @media (width >= 80rem) {
-      min-block-size: 408px;
-      border-color: var(--color-border);
-    }
-  }
-
-  /* Two icons as all three frames draw them: the gear 1px to the right, the briefcase
-     at 22px, where a browser centres it as the design does. */
-  .use-case:nth-child(1) .tile-icon {
-    inset-inline-start: 1px;
-  }
-
-  .use-case:nth-child(3) .tile-icon {
-    inset-block-start: 0;
-    font-size: 22px;
-  }
-
-  .use-case-title {
-    margin-block-start: var(--space-4);
-    font-family: var(--font-display);
-    font-size: var(--text-xl);
-    font-weight: var(--weight-display);
-    line-height: var(--leading-display);
-    letter-spacing: var(--tracking-display);
-  }
-
-  /* The text column is 249 wide in every frame, whatever the card's width. */
-  .use-case-text {
-    max-inline-size: 15.5625rem;
-    margin-block-start: var(--space-2);
-    font-size: var(--text-md);
-    color: var(--color-muted);
-  }
-
-  /* 30: the design's text box is 2px shorter than its two lines, and the gap under it is 32. */
-  .use-case-list {
-    max-inline-size: 15.5625rem;
-    margin-block-start: 30px;
-  }
-
-  .use-case-item {
-    display: flex;
-    gap: var(--space-2);
-    align-items: center;
-    padding-block-start: var(--space-3);
-    border-block-start: 1px solid color-mix(in srgb, var(--color-divider) 50%, transparent);
-    font-size: var(--text-sm);
-    line-height: 1rem; /* 16 */
-
-    &:first-child {
-      border-block-start-color: var(--color-divider);
-    }
-
-    &:not(:last-child) {
-      padding-block-end: var(--space-3);
-    }
+  &:not(:last-child) {
+    padding-block-end: var(--space-3);
   }
 }

@@ -1,198 +1,192 @@
-@layer components {
-  /* The gap above belongs to the features section; the 1440 frame adds 62 of its own.
-     Below, the frames' distance to the next section. */
-  .showcase {
-    padding-block-end: var(--space-16);
+/* The gap above belongs to the features section; the 1440 frame adds 62 of its own.
+   Below, the frames' distance to the next section. */
+.showcase {
+  padding-block-end: var(--space-16);
 
-    @media (width >= 48rem) {
-      padding-block-end: var(--space-20);
-    }
-
-    @media (width >= 64rem) {
-      padding-block: 62px 121px; /* design values */
-    }
+  @media (width >= 48rem) {
+    padding-block-end: var(--space-20);
   }
 
-  /* The 768 and 390 frames draw the 1440 card at 0.55: radius, shadow, rings and glow. */
-  .showcase-card {
-    position: relative;
-    isolation: isolate;
-    overflow: clip;
-    padding: var(--space-8) var(--space-4);
-    border-radius: 15.4px;
-    color: var(--color-surface);
-    text-align: center;
-    background: var(--color-surface-dark);
-    box-shadow: 0 4.4px 22px rgb(0 0 0 / 15%);
+  @media (width >= 64rem) {
+    padding-block: 62px 121px; /* design values */
+  }
+}
 
-    @media (width >= 48rem) {
-      padding-inline: 26.4px;
-    }
+/* The 768 and 390 frames draw the 1440 card at 0.55: radius, shadow, rings and glow. */
+.showcase-card {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding: var(--space-8) var(--space-4);
+  border-radius: 15.4px;
+  color: var(--color-surface);
+  text-align: center;
+  background: var(--color-surface-dark);
+  box-shadow: 0 4.4px 22px rgb(0 0 0 / 15%);
 
-    @media (width >= 80rem) {
-      padding: var(--space-16) var(--space-12);
-      border-radius: 28px;
-      box-shadow: var(--shadow-dark-card);
-    }
+  @media (width >= 48rem) {
+    padding-inline: 26.4px;
   }
 
-  .showcase-head {
-    display: grid;
-    gap: var(--space-3);
-    justify-items: center;
-    max-inline-size: 45.5625rem; /* 729 */
-    margin-inline: auto;
+  @media (width >= 80rem) {
+    padding: var(--space-16) var(--space-12);
+    border-radius: 28px;
+    box-shadow: var(--shadow-dark-card);
+  }
+}
 
-    @media (width >= 80rem) {
-      gap: var(--space-4);
-    }
+.showcase-head {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: center;
+  max-inline-size: 45.5625rem; /* 729 */
+  margin-inline: auto;
+
+  @media (width >= 80rem) {
+    gap: var(--space-4);
+  }
+}
+
+.showcase-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-light);
+}
+
+/* Line heights are the design's text boxes (29, 43, 60) with its gap between the lines. */
+.showcase-title {
+  justify-self: stretch;
+  font-family: var(--font-display);
+  font-size: 1.5rem; /* 24 */
+  font-weight: var(--weight-display);
+  line-height: 1.875rem; /* 30 */
+  letter-spacing: var(--tracking-display);
+
+  @media (width >= 48rem) {
+    font-size: 2.25rem; /* 36 */
+    line-height: 2.6875rem; /* 43 */
   }
 
-  .showcase-label {
-    font-size: var(--text-xs);
-    font-weight: var(--weight-semibold);
-    line-height: 1.25;
-    letter-spacing: 0.05em;
-    color: var(--color-primary-light);
+  @media (width >= 80rem) {
+    font-size: 3.125rem; /* 50 */
+    line-height: 3.75rem; /* 60 */
+  }
+}
+
+.showcase-title-accent {
+  color: var(--color-primary-light);
+
+  /* On phones the accent shares a line, and starts 43% into the design's gradient. */
+  @supports (background-clip: text) {
+    background: linear-gradient(90deg, var(--color-gradient-start) -75%, var(--color-gradient-end));
+    background-clip: text;
+    color: transparent;
   }
 
-  /* Line heights are the design's text boxes (29, 43, 60) with its gap between the lines. */
-  .showcase-title {
-    justify-self: stretch;
-    font-family: var(--font-display);
-    font-size: 1.5rem; /* 24 */
-    font-weight: var(--weight-display);
-    line-height: 1.875rem; /* 30 */
-    letter-spacing: var(--tracking-display);
+  /* From here it has its own line; the gradient ends at 78.7% of the design's text box. */
+  @media (width >= 48rem) {
+    display: block;
+    max-inline-size: 401px;
+    margin: 1px auto 0;
 
-    @media (width >= 48rem) {
-      font-size: 2.25rem; /* 36 */
-      line-height: 2.6875rem; /* 43 */
-    }
-
-    @media (width >= 80rem) {
-      font-size: 3.125rem; /* 50 */
-      line-height: 3.75rem; /* 60 */
-    }
-  }
-
-  .showcase-title-accent {
-    color: var(--color-primary-light);
-
-    /* On phones the accent shares a line, and starts 43% into the design's gradient. */
     @supports (background-clip: text) {
-      background: linear-gradient(
+      background-image: linear-gradient(
         90deg,
-        var(--color-gradient-start) -75%,
-        var(--color-gradient-end)
+        var(--color-gradient-start),
+        var(--color-gradient-end) 78.7%
       );
-      background-clip: text;
-      color: transparent;
-    }
-
-    /* From here it has its own line; the gradient ends at 78.7% of the design's text box. */
-    @media (width >= 48rem) {
-      display: block;
-      max-inline-size: 401px;
-      margin: 1px auto 0;
-
-      @supports (background-clip: text) {
-        background-image: linear-gradient(
-          90deg,
-          var(--color-gradient-start),
-          var(--color-gradient-end) 78.7%
-        );
-      }
-    }
-
-    @media (width >= 80rem) {
-      max-inline-size: none;
-      margin-block-start: 2px;
     }
   }
 
-  .showcase-text {
-    font-size: var(--text-md);
-    color: rgb(255 255 255 / 45%);
-
-    @media (width >= 80rem) {
-      font-size: var(--text-base);
-    }
+  @media (width >= 80rem) {
+    max-inline-size: none;
+    margin-block-start: 2px;
   }
+}
 
-  /* Holds the window and draws the rings and the glow behind it, placed from the window's
-     top edge. The design blurs what is behind the window, which hides the rings there:
-     here the stage covers them with the card's colour and the same glow. */
-  .showcase-stage {
-    --scene-scale: 0.55;
-    --scene-x: 0px;
-    --scene-y: -11px;
-    --scene-ring: rgb(255 255 255 / 6%);
-    --scene-glow: color-mix(in srgb, var(--color-primary) 14%, transparent);
+.showcase-text {
+  font-size: var(--text-md);
+  color: rgb(255 255 255 / 45%);
 
-    position: relative;
-    margin-block-start: 47px; /* design value */
-    border-radius: 13.2px; /* the window's */
+  @media (width >= 80rem) {
+    font-size: var(--text-base);
+  }
+}
+
+/* Holds the window and draws the rings and the glow behind it, placed from the window's
+   top edge. The design blurs what is behind the window, which hides the rings there:
+   here the stage covers them with the card's colour and the same glow. */
+.showcase-stage {
+  --scene-scale: 0.55;
+  --scene-x: 0px;
+  --scene-y: -11px;
+  --scene-ring: rgb(255 255 255 / 6%);
+  --scene-glow: color-mix(in srgb, var(--color-primary) 14%, transparent);
+
+  position: relative;
+  margin-block-start: 47px; /* design value */
+  border-radius: 13.2px; /* the window's */
+  background:
+    radial-gradient(
+      calc(300px * var(--scene-scale)) calc(240px * var(--scene-scale)) at
+        calc(50% + var(--scene-x)) calc(var(--scene-y) - 120px * var(--scene-scale)),
+      var(--scene-glow),
+      transparent
+    ),
+    var(--color-surface-dark);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset-block-start: calc(var(--scene-y) - 500px);
+    inset-inline-start: calc(50% + var(--scene-x) - 500px);
+    z-index: -1;
+    inline-size: 1000px;
+    block-size: 1000px;
     background:
+      radial-gradient(300px 240px at 50% 380px, var(--scene-glow), transparent),
       radial-gradient(
-        calc(300px * var(--scene-scale)) calc(240px * var(--scene-scale)) at
-          calc(50% + var(--scene-x)) calc(var(--scene-y) - 120px * var(--scene-scale)),
-        var(--scene-glow),
-        transparent
-      ),
-      var(--color-surface-dark);
+        closest-side,
+        transparent 81.75px,
+        var(--scene-ring) 82.25px 82.75px,
+        transparent 83.25px 165.75px,
+        var(--scene-ring) 166.25px 166.75px,
+        transparent 167.25px 248.75px,
+        var(--scene-ring) 249.25px 249.75px,
+        transparent 250.25px 332.75px,
+        var(--scene-ring) 333.25px 333.75px,
+        transparent 334.25px 415.75px,
+        var(--scene-ring) 416.25px 416.75px,
+        transparent 417.25px 498.75px,
+        var(--scene-ring) 499.25px 499.75px,
+        transparent 500.25px
+      );
+    scale: var(--scene-scale);
+  }
 
-    &::before {
-      content: '';
-      position: absolute;
-      inset-block-start: calc(var(--scene-y) - 500px);
-      inset-inline-start: calc(50% + var(--scene-x) - 500px);
-      z-index: -1;
-      inline-size: 1000px;
-      block-size: 1000px;
-      background:
-        radial-gradient(300px 240px at 50% 380px, var(--scene-glow), transparent),
-        radial-gradient(
-          closest-side,
-          transparent 81.75px,
-          var(--scene-ring) 82.25px 82.75px,
-          transparent 83.25px 165.75px,
-          var(--scene-ring) 166.25px 166.75px,
-          transparent 167.25px 248.75px,
-          var(--scene-ring) 249.25px 249.75px,
-          transparent 250.25px 332.75px,
-          var(--scene-ring) 333.25px 333.75px,
-          transparent 334.25px 415.75px,
-          var(--scene-ring) 416.25px 416.75px,
-          transparent 417.25px 498.75px,
-          var(--scene-ring) 499.25px 499.75px,
-          transparent 500.25px
-        );
-      scale: var(--scene-scale);
-    }
+  /* The scaled window: 296 x 0.86, and its radius. A flow root, to end where it ends. */
+  @media (width < 22.5rem) {
+    display: flow-root;
+    inline-size: 254.56px;
+    margin-inline: auto;
+    border-radius: 11.35px;
+  }
 
-    /* The scaled window: 296 x 0.86, and its radius. A flow root, to end where it ends. */
-    @media (width < 22.5rem) {
-      display: flow-root;
-      inline-size: 254.56px;
-      margin-inline: auto;
-      border-radius: 11.35px;
-    }
+  @media (width >= 48rem) {
+    --scene-x: 26.4px;
 
-    @media (width >= 48rem) {
-      --scene-x: 26.4px;
+    margin-block-start: 41px; /* design value */
+  }
 
-      margin-block-start: 41px; /* design value */
-    }
+  @media (width >= 80rem) {
+    --scene-scale: 1;
+    --scene-x: 48px;
+    --scene-y: 83px;
+    --scene-ring: rgb(255 255 255 / 10%);
 
-    @media (width >= 80rem) {
-      --scene-scale: 1;
-      --scene-x: 48px;
-      --scene-y: 83px;
-      --scene-ring: rgb(255 255 255 / 10%);
-
-      margin-block-start: var(--space-10);
-      border-radius: var(--radius-2xl);
-    }
+    margin-block-start: var(--space-10);
+    border-radius: var(--radius-2xl);
   }
 }

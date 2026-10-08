@@ -1,156 +1,154 @@
-@layer components {
-  /* A quote card: rating, quote, author. The author sits at the bottom edge, so the cards
-     of a row keep it on one line whatever the quote's length. Padding is the design's 24
-     minus the 1px stroke inside the card; the stroke is half as strong below 80rem. */
-  .testimonial {
-    --testimonial-star: var(--color-star);
-    --testimonial-quote: var(--color-ink);
-    --testimonial-name: var(--color-ink);
-    --testimonial-role: var(--color-muted);
+/* A quote card: rating, quote, author. The author sits at the bottom edge, so the cards
+   of a row keep it on one line whatever the quote's length. Padding is the design's 24
+   minus the 1px stroke inside the card; the stroke is half as strong below 80rem. */
+.testimonial {
+  --testimonial-star: var(--color-star);
+  --testimonial-quote: var(--color-ink);
+  --testimonial-name: var(--color-ink);
+  --testimonial-role: var(--color-muted);
 
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    min-block-size: 228px; /* design value */
-    padding: 23px;
-    overflow: clip; /* the avatar's long shadows end at the card's edge */
-    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
-    border-radius: var(--radius-xl);
-    background: var(--color-surface);
-    box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-block-size: 228px; /* design value */
+  padding: 23px;
+  overflow: clip; /* the avatar's long shadows end at the card's edge */
+  border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
 
-    @media (width >= 80rem) {
-      border-color: var(--color-border);
-    }
+  @media (width >= 80rem) {
+    border-color: var(--color-border);
+  }
+}
+
+/* No stroke; the gaps and the height are the dark card's own in each frame. */
+.testimonial-dark {
+  --testimonial-star: var(--color-primary-light);
+  --testimonial-quote: rgb(255 255 255 / 72%);
+  --testimonial-name: rgb(255 255 255 / 90%);
+  --testimonial-role: rgb(255 255 255 / 38%);
+
+  gap: var(--space-4);
+  min-block-size: 217px; /* design value */
+  border-color: transparent;
+  background: var(--color-surface-dark);
+  box-shadow: var(--shadow-dark-card);
+
+  @media (width >= 80rem) {
+    gap: 10px; /* design value */
+  }
+}
+
+.testimonial-rating {
+  flex: none;
+  fill: var(--testimonial-star);
+}
+
+/* The frames' text column: 296 in the single column, 374 in the 430px cards. */
+.testimonial-quote {
+  max-inline-size: 18.5rem;
+  font-size: var(--text-md);
+  color: var(--testimonial-quote);
+
+  @media (width >= 48rem) {
+    max-inline-size: none;
   }
 
-  /* No stroke; the gaps and the height are the dark card's own in each frame. */
-  .testimonial-dark {
-    --testimonial-star: var(--color-primary-light);
-    --testimonial-quote: rgb(255 255 255 / 72%);
-    --testimonial-name: rgb(255 255 255 / 90%);
-    --testimonial-role: rgb(255 255 255 / 38%);
+  @media (width >= 80rem) {
+    max-inline-size: 23.375rem;
+  }
+}
 
-    gap: var(--space-4);
-    min-block-size: 217px; /* design value */
-    border-color: transparent;
-    background: var(--color-surface-dark);
-    box-shadow: var(--shadow-dark-card);
+.testimonial-author {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  margin-block-start: auto;
+}
 
-    @media (width >= 80rem) {
-      gap: 10px; /* design value */
-    }
+/* The design's glass ring around a portrait. Its inner shadows and stroke lie over
+   what it holds, so both are pseudo-elements. */
+.testimonial-avatar {
+  position: relative;
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 36px;
+  block-size: 36px;
+  border-radius: 50%;
+  background: rgb(240 240 240 / 30%);
+  box-shadow:
+    -27px 66px 29px rgb(145 145 145 / 1%),
+    -15px 37px 24px rgb(145 145 145 / 3%),
+    -7px 17px 18px rgb(145 145 145 / 4%),
+    -2px 4px 10px rgb(145 145 145 / 5%);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
   }
 
-  .testimonial-rating {
-    flex: none;
-    fill: var(--testimonial-star);
-  }
-
-  /* The frames' text column: 296 in the single column, 374 in the 430px cards. */
-  .testimonial-quote {
-    max-inline-size: 18.5rem;
-    font-size: var(--text-md);
-    color: var(--testimonial-quote);
-
-    @media (width >= 48rem) {
-      max-inline-size: none;
-    }
-
-    @media (width >= 80rem) {
-      max-inline-size: 23.375rem;
-    }
-  }
-
-  .testimonial-author {
-    display: flex;
-    gap: var(--space-2);
-    align-items: center;
-    margin-block-start: auto;
-  }
-
-  /* The design's glass ring around a portrait. Its inner shadows and stroke lie over
-     what it holds, so both are pseudo-elements. */
-  .testimonial-avatar {
-    position: relative;
-    display: grid;
-    flex: none;
-    place-items: center;
-    inline-size: 36px;
-    block-size: 36px;
-    border-radius: 50%;
-    background: rgb(240 240 240 / 30%);
+  &::before {
     box-shadow:
-      -27px 66px 29px rgb(145 145 145 / 1%),
-      -15px 37px 24px rgb(145 145 145 / 3%),
-      -7px 17px 18px rgb(145 145 145 / 4%),
-      -2px 4px 10px rgb(145 145 145 / 5%);
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-    }
-
-    &::before {
-      box-shadow:
-        inset 0 -5px 4px rgb(255 255 255 / 25%),
-        inset 0 4px 4px rgb(255 255 255 / 25%);
-    }
-
-    /* The design's angular paint, its stops mapped to pixel angles. */
-    &::after {
-      padding: 1px;
-      background: conic-gradient(
-        at 50% 52.91%,
-        rgb(252 252 252 / 69%) 0deg,
-        rgb(255 255 255 / 50%) 32.3deg,
-        rgb(249 249 249 / 50%) 73.1deg,
-        rgb(156 156 156 / 50%) 111.9deg,
-        rgb(156 156 156 / 35%) 131.4deg,
-        rgb(255 255 255 / 50%) 159.4deg,
-        rgb(255 255 255 / 50%) 212.7deg,
-        rgb(156 156 156 / 35%) 289.4deg,
-        rgb(249 249 249 / 100%) 307.4deg,
-        rgb(252 252 252 / 69%) 360deg
-      );
-      mask:
-        linear-gradient(#000 0 0) content-box exclude,
-        linear-gradient(#000 0 0);
-    }
+      inset 0 -5px 4px rgb(255 255 255 / 25%),
+      inset 0 4px 4px rgb(255 255 255 / 25%);
   }
 
-  /* Initials stand in for the design's portraits. */
-  .testimonial-initials {
-    display: grid;
-    place-items: center;
-    inline-size: 28px;
-    block-size: 28px;
-    border-radius: 50%;
-    font-size: var(--text-2xs);
-    font-weight: var(--weight-semibold);
-    line-height: 1;
-    color: var(--color-surface);
-    background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  /* The design's angular paint, its stops mapped to pixel angles. */
+  &::after {
+    padding: 1px;
+    background: conic-gradient(
+      at 50% 52.91%,
+      rgb(252 252 252 / 69%) 0deg,
+      rgb(255 255 255 / 50%) 32.3deg,
+      rgb(249 249 249 / 50%) 73.1deg,
+      rgb(156 156 156 / 50%) 111.9deg,
+      rgb(156 156 156 / 35%) 131.4deg,
+      rgb(255 255 255 / 50%) 159.4deg,
+      rgb(255 255 255 / 50%) 212.7deg,
+      rgb(156 156 156 / 35%) 289.4deg,
+      rgb(249 249 249 / 100%) 307.4deg,
+      rgb(252 252 252 / 69%) 360deg
+    );
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
   }
+}
 
-  .testimonial-person {
-    display: grid;
-    gap: 1px; /* design value */
-  }
+/* Initials stand in for the design's portraits. */
+.testimonial-initials {
+  display: grid;
+  place-items: center;
+  inline-size: 28px;
+  block-size: 28px;
+  border-radius: 50%;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  color: var(--color-surface);
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+}
 
-  .testimonial-name {
-    font-size: var(--text-md);
-    font-weight: var(--weight-semibold);
-    line-height: 1.0625rem; /* 17 */
-    color: var(--testimonial-name);
-  }
+.testimonial-person {
+  display: grid;
+  gap: 1px; /* design value */
+}
 
-  .testimonial-role {
-    font-size: var(--text-xs);
-    line-height: 0.9375rem; /* 15 */
-    color: var(--testimonial-role);
-  }
+.testimonial-name {
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  line-height: 1.0625rem; /* 17 */
+  color: var(--testimonial-name);
+}
+
+.testimonial-role {
+  font-size: var(--text-xs);
+  line-height: 0.9375rem; /* 15 */
+  color: var(--testimonial-role);
 }

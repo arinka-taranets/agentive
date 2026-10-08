@@ -1,18 +1,16 @@
-@layer components {
-  /* The round tick in front of a list item. The surface comes from `glass`; the mark is
-     the design's glyph as a path, because the page's font subset has no tick. */
-  .check {
-    --glass-half: 9px;
+/* The round tick in front of a list item. The surface comes from `glass`; the mark is
+   the design's glyph as a path, because the page's font subset has no tick. */
+.check {
+  --glass-half: 9px;
 
-    flex: none;
-    inline-size: 18px;
-    block-size: 18px;
-    border-radius: 50%;
-    color: var(--color-primary);
+  flex: none;
+  inline-size: 18px;
+  block-size: 18px;
+  border-radius: 50%;
+  color: var(--color-primary);
 
-    > svg {
-      position: relative;
-      fill: currentcolor;
-    }
+  > svg {
+    position: relative;
+    fill: currentcolor;
   }
 }

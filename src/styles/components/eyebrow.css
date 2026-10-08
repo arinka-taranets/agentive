@@ -1,37 +1,35 @@
-@layer components {
-  /* The small label above a section heading ("Now in public beta"). Its surface is `glass`. */
-  .eyebrow {
-    --glass-half: 13px;
+/* The small label above a section heading ("Now in public beta"). Its surface is `glass`. */
+.eyebrow {
+  --glass-half: 13px;
 
-    display: inline-flex;
-    padding: 7px var(--space-3);
-    border-radius: var(--radius-pill);
-    font-size: var(--text-2xs);
-    font-weight: var(--weight-semibold);
-    line-height: var(--leading-ui);
-    letter-spacing: var(--tracking-eyebrow);
-    color: var(--color-primary);
+  display: inline-flex;
+  padding: 7px var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-primary);
 
-    @media (width >= 48rem) {
-      --glass-half: 14.5px;
+  @media (width >= 48rem) {
+    --glass-half: 14.5px;
 
-      font-size: var(--text-xs);
-      line-height: 1.25; /* the design's text box is 15, not 14.5: its 12px line rounded up */
-    }
+    font-size: var(--text-xs);
+    line-height: 1.25; /* the design's text box is 15, not 14.5: its 12px line rounded up */
   }
+}
 
-  .eyebrow-label {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px; /* design value, off the 4px grid */
+.eyebrow-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* design value, off the 4px grid */
 
-    &::before {
-      content: '';
-      inline-size: 6px;
-      block-size: 6px;
-      border-radius: 50%;
-      background: currentcolor;
-    }
+  &::before {
+    content: '';
+    inline-size: 6px;
+    block-size: 6px;
+    border-radius: 50%;
+    background: currentcolor;
   }
 }

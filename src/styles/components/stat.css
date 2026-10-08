@@ -1,51 +1,49 @@
-@layer components {
-  /* The headline figure beside the testimonials. Paddings and gaps are each frame's;
-     line heights are the design's text boxes. */
-  .stat {
-    padding: var(--space-6);
-    border-radius: var(--radius-xl);
-    color: var(--color-surface);
-    background: var(--color-primary);
-    box-shadow: 0 10px 32px color-mix(in srgb, var(--color-primary) 30%, transparent);
+/* The headline figure beside the testimonials. Paddings and gaps are each frame's;
+   line heights are the design's text boxes. */
+.stat {
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  color: var(--color-surface);
+  background: var(--color-primary);
+  box-shadow: 0 10px 32px color-mix(in srgb, var(--color-primary) 30%, transparent);
 
-    @media (width >= 80rem) {
-      padding: 28px var(--space-8); /* design value */
-    }
+  @media (width >= 80rem) {
+    padding: 28px var(--space-8); /* design value */
   }
+}
 
-  .stat-value {
-    display: block;
-    font-family: var(--font-display);
-    font-size: var(--text-6xl);
-    font-weight: var(--weight-display);
-    line-height: 4.8125rem; /* 77 */
-    letter-spacing: var(--tracking-display);
+.stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-6xl);
+  font-weight: var(--weight-display);
+  line-height: 4.8125rem; /* 77 */
+  letter-spacing: var(--tracking-display);
+}
+
+.stat-label {
+  display: block;
+  margin-block-start: 17px; /* design value */
+  font-weight: var(--weight-semibold);
+  line-height: 1.1875rem; /* 19 */
+  color: rgb(255 255 255 / 75%);
+}
+
+.stat-note {
+  margin-block-start: var(--space-3);
+  font-size: var(--text-sm);
+  line-height: 1rem; /* 16 */
+  color: rgb(255 255 255 / 45%);
+
+  @media (width >= 80rem) {
+    margin-block-start: 9px; /* design value */
   }
+}
 
-  .stat-label {
-    display: block;
-    margin-block-start: 17px; /* design value */
-    font-weight: var(--weight-semibold);
-    line-height: 1.1875rem; /* 19 */
-    color: rgb(255 255 255 / 75%);
-  }
-
-  .stat-note {
-    margin-block-start: var(--space-3);
-    font-size: var(--text-sm);
-    line-height: 1rem; /* 16 */
-    color: rgb(255 255 255 / 45%);
-
-    @media (width >= 80rem) {
-      margin-block-start: 9px; /* design value */
-    }
-  }
-
-  .stat-rate {
-    margin-block-start: var(--space-3);
-    font-size: var(--text-sm);
-    font-weight: var(--weight-semibold);
-    line-height: 1rem; /* 16 */
-    color: rgb(255 255 255 / 60%);
-  }
+.stat-rate {
+  margin-block-start: var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  line-height: 1rem; /* 16 */
+  color: rgb(255 255 255 / 60%);
 }

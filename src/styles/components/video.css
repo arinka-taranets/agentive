@@ -1,78 +1,76 @@
-@layer components {
-  /* The demo video in a modal `<dialog>`. Not drawn in the design: the dark card's colours,
-     the footer's translucent button. As wide as the screen allows, 960 at most, and never
-     taller than the viewport, so the whole 16:9 frame shows on a phone held sideways. */
-  .video {
-    --focus-ring: 2px solid var(--color-primary-light);
+/* The demo video in a modal `<dialog>`. Not drawn in the design: the dark card's colours,
+   the footer's translucent button. As wide as the screen allows, 960 at most, and never
+   taller than the viewport, so the whole 16:9 frame shows on a phone held sideways. */
+.video {
+  --focus-ring: 2px solid var(--color-primary-light);
 
-    inline-size: min(100vw - 2 * var(--gutter), 60rem, (100dvh - 9rem) * 16 / 9);
-    max-inline-size: none;
-    margin: auto; /* the reset removes the centring a modal dialog comes with */
-    padding: 0;
-    overflow: visible;
-    border: 0;
-    border-radius: var(--radius-xl);
-    color: var(--color-surface);
-    background: var(--color-surface-dark);
-    box-shadow: var(--shadow-dark-card);
+  inline-size: min(100vw - 2 * var(--gutter), 60rem, (100dvh - 9rem) * 16 / 9);
+  max-inline-size: none;
+  margin: auto; /* the reset removes the centring a modal dialog comes with */
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: var(--radius-xl);
+  color: var(--color-surface);
+  background: var(--color-surface-dark);
+  box-shadow: var(--shadow-dark-card);
 
-    /* A literal: before 2024 browsers did not pass custom properties on to ::backdrop. */
-    &::backdrop {
-      background: rgb(14 14 17 / 72%);
-    }
+  /* A literal: before 2024 browsers did not pass custom properties on to ::backdrop. */
+  &::backdrop {
+    background: rgb(14 14 17 / 72%);
   }
+}
 
-  /* Fills the dialog, so a click on the dialog element itself is a click on the backdrop. */
-  .video-body {
-    display: grid;
-    gap: var(--space-3);
-    padding: var(--space-3) var(--space-3) var(--space-4);
+/* Fills the dialog, so a click on the dialog element itself is a click on the backdrop. */
+.video-body {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3) var(--space-4);
 
-    @media (width >= 48rem) {
-      gap: var(--space-4);
-      padding: var(--space-4) var(--space-4) var(--space-5);
-    }
-  }
-
-  .video-head {
-    display: flex;
+  @media (width >= 48rem) {
     gap: var(--space-4);
-    align-items: center;
-    justify-content: space-between;
+    padding: var(--space-4) var(--space-4) var(--space-5);
   }
+}
 
-  .video-title {
-    font-size: var(--text-md);
-    font-weight: var(--weight-medium);
-    line-height: var(--leading-ui);
-    color: rgb(255 255 255 / 72%);
+.video-head {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.video-title {
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-ui);
+  color: rgb(255 255 255 / 72%);
+}
+
+.video-close {
+  display: grid;
+  place-items: center;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: var(--radius-sm);
+  color: rgb(255 255 255 / 72%);
+  transition: color var(--duration-fast) var(--ease-out);
+
+  &:hover {
+    color: var(--color-surface);
   }
+}
 
-  .video-close {
-    display: grid;
-    place-items: center;
-    inline-size: 2.5rem;
-    block-size: 2.5rem;
-    border-radius: var(--radius-sm);
-    color: rgb(255 255 255 / 72%);
-    transition: color var(--duration-fast) var(--ease-out);
+.video-frame {
+  aspect-ratio: 16 / 9;
+  overflow: clip;
+  border-radius: var(--radius-lg);
+  background: #000;
 
-    &:hover {
-      color: var(--color-surface);
-    }
-  }
-
-  .video-frame {
-    aspect-ratio: 16 / 9;
-    overflow: clip;
-    border-radius: var(--radius-lg);
-    background: #000;
-
-    & iframe {
-      display: block;
-      inline-size: 100%;
-      block-size: 100%;
-      border: 0;
-    }
+  & iframe {
+    display: block;
+    inline-size: 100%;
+    block-size: 100%;
+    border: 0;
   }
 }

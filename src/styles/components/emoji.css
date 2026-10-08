@@ -1,12 +1,10 @@
-@layer components {
-  /* An emoji as a small icon. Below 16px macOS draws Apple Color Emoji a quarter larger
-     than the font size, so the glyph is set at 0.8em in a box of the intended width and
-     raised to stay on the line's centre. */
-  .emoji {
-    display: inline-block;
-    inline-size: 1.25em;
-    font-size: 0.8em;
-    line-height: 1;
-    vertical-align: 0.125em;
-  }
+/* An emoji as a small icon. Below 16px macOS draws Apple Color Emoji a quarter larger
+   than the font size, so the glyph is set at 0.8em in a box of the intended width and
+   raised to stay on the line's centre. */
+.emoji {
+  display: inline-block;
+  inline-size: 1.25em;
+  font-size: 0.8em;
+  line-height: 1;
+  vertical-align: 0.125em;
 }

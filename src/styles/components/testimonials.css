@@ -1,44 +1,42 @@
-@layer components {
-  /* White on both sides, so the section carries the whole gap to its neighbours. */
-  .testimonials {
-    padding-block: 128px var(--space-16);
+/* White on both sides, so the section carries the whole gap to its neighbours. */
+.testimonials {
+  padding-block: 128px var(--space-16);
 
-    @media (width >= 48rem) {
-      padding-block: 160px;
-    }
-
-    @media (width >= 64rem) {
-      padding-block: 124px 127px; /* design values */
-    }
+  @media (width >= 48rem) {
+    padding-block: 160px;
   }
 
-  /* A size down from the other section titles in the 1440 frame. */
-  .testimonials-title {
-    max-inline-size: 42rem; /* 672 */
+  @media (width >= 64rem) {
+    padding-block: 124px 127px; /* design values */
+  }
+}
 
-    @media (width >= 80rem) {
-      font-size: var(--text-3xl);
-      line-height: 3rem; /* 48 */
-    }
+/* A size down from the other section titles in the 1440 frame. */
+.testimonials-title {
+  max-inline-size: 42rem; /* 672 */
+
+  @media (width >= 80rem) {
+    font-size: var(--text-3xl);
+    line-height: 3rem; /* 48 */
+  }
+}
+
+/* Source order is the 768 and 390 frames' reading order. The 1440 frame sets the same
+   order down three columns of its own widths. */
+.testimonials-grid {
+  display: grid;
+  gap: var(--space-4);
+  margin-block-start: var(--space-10);
+
+  @media (width >= 48rem) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* Source order is the 768 and 390 frames' reading order. The 1440 frame sets the same
-     order down three columns of its own widths. */
-  .testimonials-grid {
-    display: grid;
-    gap: var(--space-4);
-    margin-block-start: var(--space-10);
-
-    @media (width >= 48rem) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    @media (width >= 80rem) {
-      grid-template-rows: repeat(2, auto);
-      grid-template-columns: 380fr 430fr 430fr;
-      grid-auto-flow: column;
-      gap: var(--space-6) 20px; /* design values */
-      margin-block-start: 38px; /* design value */
-    }
+  @media (width >= 80rem) {
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 380fr 430fr 430fr;
+    grid-auto-flow: column;
+    gap: var(--space-6) 20px; /* design values */
+    margin-block-start: 38px; /* design value */
   }
 }
