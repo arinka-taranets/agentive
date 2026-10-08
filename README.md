@@ -3,6 +3,11 @@
 Landing page for Agentive, a fictional SaaS platform for automating workflows, built from a
 Figma Community design.
 
+## Demo page
+
+The footer links and the buttons on the pricing plans are placeholders (`href="#"`): the
+pages behind them are not part of this demo.
+
 ## Credits
 
 - Design: the [Agentive landing page template](https://www.figma.com/community/file/1631269295568460131)
