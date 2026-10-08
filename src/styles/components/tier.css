@@ -98,7 +98,7 @@
 .tier-note {
   margin-block-start: var(--space-2);
   font-size: var(--text-md);
-  line-height: var(--leading-ui);
+  line-height: 1.0625rem; /* 17, the design's text box */
   color: var(--tier-note);
 }
 
