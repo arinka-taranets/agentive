@@ -49,7 +49,7 @@
 .billing-label {
   min-inline-size: 60px;
 
-  &:first-child {
+  .billing > & {
     justify-self: end;
   }
 }
