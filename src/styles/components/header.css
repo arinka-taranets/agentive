@@ -130,7 +130,14 @@
     position: absolute;
     inset-inline: 0;
     inset-block-start: 100%;
+
+    /* On a short screen (a phone on its side, 200% zoom) the panel scrolls: the bar is
+       sticky, so the page cannot bring its last links into view. */
+    max-block-size: calc(100dvh - var(--header-height));
     padding: var(--space-2) var(--gutter) var(--space-6);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scroll-padding-block-end: var(--space-6); /* room for the last link's focus ring */
     border-block-start: 1px solid var(--color-divider);
     background: var(--color-surface);
     box-shadow: var(--shadow-bar);
