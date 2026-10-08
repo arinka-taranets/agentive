@@ -68,18 +68,27 @@
   letter-spacing: var(--tracking-display);
 }
 
-/* The text column is 249 wide in every frame, whatever the card's width. */
+/* The text column is 249 wide in every frame, whatever the card's width. Between the
+   390 and 768 frames the card grows to twice that and more: there the text fills it. */
 .use-case-text {
   max-inline-size: 15.5625rem;
   margin-block-start: var(--space-2);
   font-size: var(--text-md);
   color: var(--color-muted);
+
+  @media (30rem <= width < 48rem) {
+    max-inline-size: none;
+  }
 }
 
 /* 30: the design's text box is 2px shorter than its two lines, and the gap under it is 32. */
 .use-case-list {
   max-inline-size: 15.5625rem;
   margin-block-start: 30px;
+
+  @media (30rem <= width < 48rem) {
+    max-inline-size: none;
+  }
 }
 
 .use-case-item {

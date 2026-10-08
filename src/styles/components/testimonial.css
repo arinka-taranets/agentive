@@ -46,13 +46,14 @@
   fill: var(--testimonial-star);
 }
 
-/* The frames' text column: 296 in the single column, 374 in the 430px cards. */
+/* The frames' text column: 296 in the single column, 374 in the 430px cards. Past the
+   390 frame the single column's card soon outgrows it: from 30rem the quote fills the card. */
 .testimonial-quote {
   max-inline-size: 18.5rem;
   font-size: var(--text-md);
   color: var(--testimonial-quote);
 
-  @media (width >= 48rem) {
+  @media (width >= 30rem) {
     max-inline-size: none;
   }
 
