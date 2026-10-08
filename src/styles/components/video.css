@@ -1,4 +1,4 @@
-/* The demo video in a modal `<dialog>`. Not drawn in the design: the dark card's colours,
+/* The hero's video in a modal `<dialog>`. Not drawn in the design: the dark card's colours,
    the footer's translucent button. As wide as the screen allows, 960 at most, and never
    taller than the viewport, so the whole 16:9 frame shows on a phone held sideways. */
 .video {
