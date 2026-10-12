@@ -7,8 +7,8 @@ Figma Community design.
 
 ## How it is built
 
-- One HTML file, written by hand, bundled with [Vite](https://vite.dev/). No framework and
-  no template engine.
+- One HTML file bundled with [Vite](https://vite.dev/). No framework and no template
+  engine.
 - Plain CSS. Cascade layers (`@layer`) decide which rule wins, so selectors stay flat and
   short; native nesting; custom properties for the colours, sizes and shadows the design
   repeats.
@@ -39,9 +39,8 @@ prefixes and flattens CSS nesting for that target.
 ## Matching the design
 
 The page follows the design 1:1 at its three frames (1440, 768 and 390 px) and adapts in
-between. That includes the colours: several pieces of text are drawn in the design with
-less contrast than WCAG AA asks for, and they are kept as drawn. This is a deliberate,
-documented exception, not an oversight.
+between. Colours are kept as drawn, including several text colours with less contrast than
+WCAG AA asks for.
 
 The footer links and the buttons on the pricing plans are placeholders (`href="#"`): there
 are no pages behind them.
