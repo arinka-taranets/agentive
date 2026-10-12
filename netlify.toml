@@ -1,0 +1,18 @@
+# Build settings for Netlify, kept in the repository so they are reviewed
+# with the code instead of being set by hand in the dashboard.
+
+[build]
+command = "npm run build"
+publish = "dist"
+
+[build.environment]
+# Same version as .nvmrc and "engines" in package.json.
+NODE_VERSION = "24"
+
+# Vite puts a content hash in the name of every file in assets/, so these can
+# be cached for a year. Files in the root keep their names and Netlify's
+# default (max-age=0, must-revalidate).
+[[headers]]
+for = "/assets/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
